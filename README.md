@@ -11,20 +11,26 @@ Scripts related to the study of ditransitive sentences (especially in English)
 
 4) Run Verbs.c on external.cod
 
-5) Run OldEng.q on all of the psd files from YCOE
+5) Run OldEngAct.q on all of the psd files from YCOE
 
-6) Run the RemoveDup.py from my corpus-tools repository on OldEng.out
+6) Run OldEngPas.q on all the psd files from YCOE
 
-7) Run the external.c coding query from my corpus-tools repository on OldEng.psd, naming the file oldeng_external.cod (to distinguish it from the other external.cod)
+7) Run the RemoveDup.py from my corpus-tools repository on OldEngAct.out and OldEngPas.out
 
-8) Run OEVerbs.c on oldeng_external.cod
+8) Run the external.c coding query from my corpus-tools repository on OldEngAct.psd and OldEngPas.psd, naming the file oldeng_external.cod (to distinguish it from the other external.cod)
 
-9) Run internal.c on both Verbs.cod and OEVerbs.cod simultaneously
+9) Run OEVerbs.c on oldeng_external.cod
 
-10) Copy internal.cod to dit.cod
+10) Run internal.c on both Verbs.cod and OEVerbs.cod simultaneously
 
-11) Run the only-coding.q query from my corpus-tools repository on dit.cod
+11) Run nom.c on internal.cod
 
-12) Go to the corpus-tools directory and run fill-in-externals.py with dit.cod.ooo as an argument
+12) Copy nom.cod to dit.cod
 
-13) Open dit.csv and copy the headings for internal info into csv (at the end of the first line): ,Clause,IOType,ObjOrder,IO,Acc,IONum,AccNum,IOCP,AccCP,Pas,AccOrder,DatOrder,Verb
+13) Run the only-coding.q query from my corpus-tools repository on dit.cod
+
+14) Go to the corpus-tools directory and run fill-in-externals.py with dit.cod.ooo as an argument
+
+15) Open dit.csv and copy the headings for internal info into csv (at the end of the first line): ,Clause,IOType,ObjOrder,IO,Acc,IONum,AccNum,IOCP,AccCP,Pas,AccOrder,DatOrder,Verb,Nom
+
+16) Run the data.R script in the same directory as the dit.csv just generated.  This will create a dit.RData, with only the data from actual ditransitive tokens.
