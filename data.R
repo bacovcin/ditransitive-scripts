@@ -1,34 +1,29 @@
 dit <- read.csv('dit.csv')
 
-dit$Period<-cut(dit$YoC,breaks=c(600,1000,1400,1550,1750,2000),labels=c('OldE','EMidE','LMidE','EME','MBE'))
-
 dit$NGenre<-dit$Genre
 levels(dit$NGenre)<-c("FORMAL","FORMAL","INFORMAL","FORMAL","FORMAL","FORMAL","FORMAL","FORMAL","FORMAL","FORMAL","FORMAL","INFORMAL","FORMAL","FORMAL","FORMAL","FORMAL","TRANSLATION","POETRY","FORMAL","INFORMAL","FORMAL","FORMAL","TRANSLATION","WEIRD","WEIRD","WEIRD")
+oe<-subset(dit,Verb=='OLDENG')
+levels(oe$NGenre)<-c('FORMAL','INFORMAL','TRANSLATION','POETRY','FORMAL')
+dit<-as.data.frame(rbind(subset(dit,Verb!='OLDENG'),oe))
+rm(oe)
 
-dit$AccNum<-as.numeric(as.character(dit$AccNum))
-dit$IONum<-as.numeric(as.character(dit$IONum))
+dit$NDat<-dit$Dat
 
-dit$Author <- dit$AuthName
-x <- subset(dit,Author=='x')
-x$Author <- x$Text
-dit<-as.data.frame(rbind(subset(dit,Author!='x'),x))
-rm(x)
-
-dit$NIO<-dit$IO
-
-levels(dit$NIO)[levels(dit$NIO)=='IODefinite']=c('IONoun')
-levels(dit$NIO)[levels(dit$NIO)=='IOIndefinite']=c('IONoun')
-levels(dit$NIO)[levels(dit$NIO)=='IOName']=c('IONoun')
-levels(dit$NIO)[levels(dit$NIO)=='IONull']=c('IONull')
-levels(dit$NIO)[levels(dit$NIO)=='IODPronoun']=c('IOPronoun')
+levels(dit$NDat)[levels(dit$NDat)=='IODefinite']=c('IONoun')
+levels(dit$NDat)[levels(dit$NDat)=='IOIndefinite']=c('IONoun')
+levels(dit$NDat)[levels(dit$NDat)=='IOName']=c('IONoun')
+levels(dit$NDat)[levels(dit$NDat)=='IONull']=c('IONull')
+levels(dit$NDat)[levels(dit$NDat)=='IODPronoun']=c('IOPronoun')
 
 dit$NAcc<-dit$Acc
 
-levels(dit$NAcc)[levels(dit$NAcc)=='AccDefinite']=c('AccNoun')
-levels(dit$NAcc)[levels(dit$NAcc)=='AccIndefinite']=c('AccNoun')
-levels(dit$NAcc)[levels(dit$NAcc)=='AccName']=c('AccNoun')
-levels(dit$NAcc)[levels(dit$NAcc)=='AccNull']=c('AccNull')
-levels(dit$NAcc)[levels(dit$NAcc)=='AccDPronoun']=c('AccPronoun')
+levels(dit$NAcc)[levels(dit$NAcc)=='AccDefinite']=c('DONoun')
+levels(dit$NAcc)[levels(dit$NAcc)=='AccIndefinite']=c('DONoun')
+levels(dit$NAcc)[levels(dit$NAcc)=='AccName']=c('DONoun')
+levels(dit$NAcc)[levels(dit$NAcc)=='AccNull']=c('DONull')
+levels(dit$NAcc)[levels(dit$NAcc)=='AccDPronoun']=c('DOPronoun')
+levels(dit$NAcc)[levels(dit$NAcc)=='AccPronoun']=c('DOPronoun')
+levels(dit$NAcc)[levels(dit$NAcc)=='AccEmpty']=c('DOEmpty')
 levels(dit$NAcc)[levels(dit$NAcc)=='AccCP']=c('CP')
 
 dit$NNom<-dit$Nom
@@ -262,50 +257,45 @@ dit$NOrder[dit$AccOrder=='AN']=c('TOP')
 dit$NOrder[dit$DatOrder=='_']=c('MONO')
 dit$NOrder[dit$AccOrder=='NOACC']=c('MONO')
 
+dit$PasValue<-dit$Pas
+levels(dit$PasValue)<-c('NA','1','0')
+dit$PasValue<-as.numeric(as.character(dit$PasValue))
+
 pdit<-subset(dit,NGenre!='POETRY'&NGenre!='WEIRD'&NGenre!='TRANSLATION'&Pas!='ACT'&(NVerb=='GIVE'|NVerb=='TELL'|NVerb=='PROMISE'|NVerb=='TEACH'|NVerb=='OLDENG'))
-
-thirt<-subset(pdit,YoC<1350&Pas!='REC')
-thirt<-subset(pdit,YoC<1350)
-
-pdit<-as.data.frame(rbind(subset(pdit,YoC>=1350),thirt))
-rm(thirt)
 
 pdit$Pas<-factor(pdit$Pas)
 pdit$NNom<-factor(pdit$NNom)
 
-pdit$PasValue<-pdit$Pas
-levels(pdit$PasValue)<-c('1','0')
-pdit$PasValue<-as.numeric(as.character(pdit$PasValue))
-pdit$Dat<-pdit$IO
-
 rec<-subset(pdit,Pas=='REC')
 the<-subset(pdit,Pas=='THEME')
-rec$PIO<-rec$NNom
-rec$PDO<-rec$NAcc
-the$PIO<-the$NIO
-the$PDO<-the$NNom
+rec$IO<-rec$NNom
+rec$DO<-rec$NAcc
+the$IO<-the$NDat
+the$DO<-the$NNom
 pdit<-as.data.frame(rbind(rec,the))
 rm(rec)
 rm(the)
 
-levels(pdit$PIO)<-c('IONoun','IOPronoun','IOEmpty','IOWH','IONoun','IOPronoun','IOEmpty','IONull')
-levels(pdit$PDO)<-c('DOCP','DONoun','DOPronoun','DOEmpty','DONull','DONoun','DOPronoun','DOEmpty','DOWH')
-pdit$PIO<-factor(pdit$PIO)
-pdit$PDO<-factor(pdit$PDO)
+levels(pdit$IO)<-c('IONoun','IOPronoun','IOEmpty','IOWH','IONoun','IOPronoun','IOEmpty','IONull')
+levels(pdit$DO)<-c('CP','DONoun','DOPronoun','DOEmpty','DONull','DONoun','DOPronoun','DOEmpty','DOWH')
+pdit$IO<-factor(pdit$IO)
+pdit$DO<-factor(pdit$DO)
 
-npdit<-subset(pdit,(IOType=='DP'|IOType=='NoIO')&(PIO=='IONoun'|PIO=='IOPronoun')&(PDO=='DONoun'|PDO=='DOPronoun'))
+npdit<-subset(pdit,(IOType=='DP'|IOType=='NoIO')&(IO=='IONoun'|IO=='IOPronoun')&(DO=='DONoun'|DO=='DOPronoun'))
 
-rdit<-subset(dit,IOType!='NoIO'&IOType!='PP'&IO!='IONull'&IOCP!='_'&NIO!='IOEmpty')
+rdit<-subset(dit,IOType!='NoIO'&IOType!='PP'&IO!='IONull'&IOCP!='_'&IO!='IOEmpty'&NOrder!='MONO'&Pas=='ACT'&DO!='DOEmpty')
 rdit$IOType<-factor(rdit$IOType)
-rdit$IO<-factor(rdit$IO)
+rdit$IO<-factor(rdit$NDat)
+rdit$DO<-factor(rdit$NAcc)
 
 rdit$NVerb<-factor(rdit$NVerb)
 rdit$IOCP<-factor(rdit$IOCP)
 rdit$NOrder<-factor(rdit$NOrder)
-rdit$NIO<-factor(rdit$NIO)
 
-nrdit<-subset(rdit,(NVerb=='GIVE'|NVerb=='PROMISE'|NVerb=='TELL'|NVerb=='TEACH'|NVerb=='SEND'|NVerb=='BRING'|NVerb=='OLDENG')&NOrder!='CP'&NOrder!='MONO'&NGenre!='POETRY'&NGenre!='WEIRD'&NGenre!='TRANSLATION')
-nrdit$NVerb<-factor(nrdit$NVerb)
 
-dit<-as.data.frame(rbind(npdit,npdit))
+nrdit<-subset(rdit,(NVerb=='GIVE'|NVerb=='PROMISE'|NVerb=='TELL'|NVerb=='TEACH'|NVerb=='OLDENG')&NOrder!='CP'&NOrder!='MONO'&NGenre!='POETRY'&NGenre!='WEIRD'&NGenre!='TRANSLATION')
+nrdit$NVerb <-factor(nrdit$NVerb)
+
+dit<-as.data.frame(rbind(npdit,nrdit))
+
 save(dit,file='dit.RData')

@@ -252,3 +252,15 @@ coding_query:
    DN: (IP* iDoms NP-SBJ*|NP-NOM*) AND (IP* iDoms PP) AND (PP iDomsMod PP|CONJP P) AND (P iDoms ynto|vnto|Vnto|$vnto|vntoo|vn-to|unto|Unto|towe|too|toe|til|Til|till|Till|tille|to|To|$to|TO|te|ta|tu|tho|ffor|Ffor|ffore|foore|Foore|for|For|$for|FOR|fore|$fore|Fore|forr|Forr|zuo) AND (PP Pres NP-SBJ*|NP-NOM*)
    ND: (IP* iDoms NP-SBJ*|NP-NOM*) AND (IP* iDoms PP) AND (PP iDomsMod PP|CONJP P) AND (P iDoms ynto|vnto|Vnto|$vnto|vntoo|vn-to|unto|Unto|towe|too|toe|til|Til|till|Till|tille|to|To|$to|TO|te|ta|tu|tho|ffor|Ffor|ffore|foore|Foore|for|For|$for|FOR|fore|$fore|Fore|forr|Forr|zuo) AND (NP-SBJ*|NP-NOM* Pres PP)
 }
+
+16: {
+        NomDefinite: (IP*  iDoms NP-NOM*|NP-SBJ*) AND (NP-NOM*|NP-SBJ* iDoms *$|*^G|PRO$*|NPR*|NR*)
+        NomPronoun: (IP*  iDoms NP-NOM*|NP-SBJ*) AND (NP-NOM*|NP-SBJ* iDoms PRO*)
+        NomDPronoun: (IP*  iDoms NP-NOM*|NP-SBJ*) AND (NP-NOM*|NP-SBJ* iDomsOnly D)
+        NomEmptyWH: (IP*  iDoms NP-NOM*|NP-SBJ*) AND (NP-NOM*|NP-SBJ* iDoms \*T*) AND (\*T* SameIndex WNP*) AND (WNP* iDoms \0)
+        NomWH: (IP*  iDoms NP-NOM*|NP-SBJ*) AND (NP-NOM*|NP-SBJ* iDoms \*T*) AND (\*T* SameIndex WNP*)
+        NomEmpty: (IP*  iDoms NP-NOM*|NP-SBJ*) AND (NP-NOM*|NP-SBJ* iDoms \**)
+        NomDefinite: (IP*  iDoms NP-NOM*|NP-SBJ*) AND (NP-NOM*|NP-SBJ* iDoms D) AND (D iDoms +da|+dare|+dat|+Dat|+de|+des|+dese|+dessere|+dis|+Dis|+do|se|Se|+t+as|+t+at|+t=e=|+t=t=|+ta|+Ta|+tan|+tane|+tat|+Tat|+tatt|+Tatt|+te|+Te|$+te|+teise|+ten|+tene|+tenne|+teo|+teos|+teose|+tes|+Tes|+tese|+Tese|+tess|+tet|+Tet|+ti|+tie|+tin|+tir|+Tir|+tis|+Tis|+tise|+tiss|+Tiss|+tisse|+to|$+to|+ton|+tone|+too|+tt|+tus|+tys|+Tys|+tyse|$te|te|th'|thaese|than|thase|that|That|thatt|the|The|$the|THE|the.|theas|thease|thees|theese|theis|theise|Theise|theke|thes|Thes|these|These|$these|thes~|thies|Thies|thiese|thiis|thir|thire|this|This|this.|thise|tho|thoo|thos|those|Those|thoss|thoys|thus|thyes|Thyes|thys|Thys|thyse|tiss|tys|y=e=|Y=e=|y=e=.|y=t=|ye|yt)
+        NomIndefinite: (IP*  iDoms NP-NOM*|NP-SBJ*)
+        NomNull: ELSE
+}
