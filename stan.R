@@ -3,9 +3,9 @@ library(rstan)
 
 load('~/Git//ditransitive-scripts/prior.RData')
 
-set_cppo("debug")
+set_cppo("fast")
 sep <- stan(file='~/Git/ditransitive-scripts/model_sep.stan',data=prior,iter=10,chains = 1, pars=c('a','b','heavy'))
-sep <- stan(fit=sep,data=prior,iter = 1000, chains = 10, pars=c('a','b','heavy'))
+sep <- stan(fit=sep,data=prior,iter = 2000, chains = 5, pars=c('a','b','heavy'))
 print(sep,digits=4)
 save(sep,file='sep.RData')
 

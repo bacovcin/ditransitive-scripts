@@ -33,4 +33,22 @@ Scripts related to the study of ditransitive sentences (especially in English)
 
 15) Run the data.R script in the same directory as the dit.csv just generated.  This will create a dit.RData, with only the data from actual ditransitive tokens.
 
-16) Run the prior.R script in the same directory as dit.RData, which will create the prior.RData, which contains the priors for the STAN model.
+16)* Run the prior.R script in the same directory as dit.RData, which will create the prior.RData, which contains the priors for the STAN model.
+
+17) Run the stan.R script in the same directory as prior.RData, which will create the following set of model posteriors:
+
+sep.RData - all of the binomial parameters are drawn from independent distributions
+
+m2uh.RData - same as sep, except that the slope of the first logistic in the DA equation is drawn from the same distribution as for the slope of the AD equation
+
+m3uh.RData - same as sep, except that the slope of the second logistic in the DA equation is drawn from the same distribution as for the slope of the PAS equation
+
+m23uh.RData - combines m2uh.RData and m3uh.RData
+
+m2up.RData - same as sep, except that the slope of the first logistic in the DA equation is forced to be identical to the slope of the AD equation
+
+m2up.RData - same as sep, except that the slope of the second logistic in the DA equation is forced to be identical to the slope of the PAS equation
+
+m23up.RData - combines m2up.RData and m3up.RData
+
+* pas_noun has scripts and data in which only passive sentences in which the recipient is a noun phrase (as opposed to a pronominal phrase) are included
