@@ -51,4 +51,4 @@ m2up.RData - same as sep, except that the slope of the second logistic in the DA
 
 m23up.RData - combines m2up.RData and m3up.RData
 
-* pas_noun has scripts and data in which only passive sentences in which the recipient is a noun phrase (as opposed to a pronominal phrase) are included
+* pas_noun has scripts and data in which only passive sentences in which the recipient is a noun phrase (as opposed to a pronoun) are included
