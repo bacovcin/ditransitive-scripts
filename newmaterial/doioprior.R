@@ -8,6 +8,15 @@ standardize = function(dataMat){
 }
 load('~/Git/ditransitive-scripts/dit.RData')
 
+dit1 <- subset(dit,DO=='DOPronoun'&IO=='IONoun')
+dit2 <- subset(dit,DO=='DONoun'&IO=='IOPronoun')
+dit3 <- subset(dit,DO=='DONoun'&IO=='IONoun')
+
+dit <- as.data.frame(rbind(dit1,dit2,dit3))
+rm(dit1)
+rm(dit2)
+rm(dit3)
+
 pall<-subset(dit,(Pas=='REC'|Pas=='THEME')&(DO=='DONoun'|DO=='DOPronoun')&NVerb!='TELL')
 thirt<-subset(pall,YoC<=1350&Pas!='REC')
 pall<-as.data.frame(rbind(subset(pall,YoC>1350),thirt))
@@ -36,6 +45,8 @@ levels(joint.data$Cond)<-c('2','1','3','5','4')
 
 joint.data$IO <- factor(joint.data$IO)
 joint.data$DO <- factor(joint.data$DO)
+
+ggplot(data=subset(joint.data,Cond!='3'&Cond!='4'&Cond!='5'),aes(Year,Value,colour=IO))+stat_smooth(method=loess)+facet_wrap(~Cond)
 
 joint.data$io <- factor(joint.data$IO)
 levels(joint.data$io) <- c(1,2)
