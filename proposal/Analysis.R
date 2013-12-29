@@ -78,25 +78,41 @@ data.2<-subset(real.data,cond==2&donoun==1)
 data.3<-subset(real.data,cond==3&donoun==1)
 data.4<-subset(real.data,cond==4)
 
-load('order.RData')
-orderd<-as.data.frame(order)
+load('sep.RData')
+sepd<-as.data.frame(sep)
 
 
-L1<-data.frame(yhat.order= ((1 - ((1 - mean(orderd$order)) * data.1$iodo))/ (1 + exp(-(mean(orderd$aToAD) + mean(orderd$bToAD) * data.1$x + mean(orderd$gToAD) * data.1$iosum + mean(orderd$dToAD) * data.1$iosum * data.1$x)))))
-L1$phat.order=((L1$yhat.order)^(data.1$y))*((1-L1$yhat.order)^(1-data.1$y))
+L1<-data.frame(yhat.sep= ((1 - ((1 - mean(sepd$order)) * data.1$iodo))/ (1 + exp(-(mean(sepd$aToAD) + mean(sepd$bToAD) * data.1$x + mean(sepd$gToAD) * data.1$iosum + mean(sepd$dToAD) * data.1$iosum * data.1$x)))))
+L1$phat.sep=((L1$yhat.sep)^(data.1$y))*((1-L1$yhat.sep)^(1-data.1$y))
 
-L2<-data.frame(yhat.order= (((1 - ((1 - mean(orderd$order)) * data.2$iopro)) * data.2$donoun)/ (1 + exp(-(mean(orderd$aToDA) + mean(orderd$bToDA) * data.2$x + mean(orderd$gToDA) * data.2$iosum + mean(orderd$dToDA) * data.2$iosum * data.2$x)))) * (1 - (mean(orderd$heavy) / (1 + exp(-(mean(orderd$aAccAct) + mean(orderd$bAccAct) * data.2$x + mean(orderd$gAccAct) * data.2$iosum + mean(orderd$dAccAct) * data.2$iosum * data.2$x))))))
-L2$phat.order=((L2$yhat.order)^(data.2$y))*((1-L2$yhat.order)^(1-data.2$y))
+L2<-data.frame(yhat.sep= (((1 - ((1 - mean(sepd$order)) * data.2$iopro)) * data.2$donoun)/ (1 + exp(-(mean(sepd$aToDA) + mean(sepd$bToDA) * data.2$x + mean(sepd$gToDA) * data.2$iosum + mean(sepd$dToDA) * data.2$iosum * data.2$x)))) * (1 - (mean(sepd$heavy) / (1 + exp(-(mean(sepd$aAccAct) + mean(sepd$bAccAct) * data.2$x + mean(sepd$gAccAct) * data.2$iosum + mean(sepd$dAccAct) * data.2$iosum * data.2$x))))))
+L2$phat.sep=((L2$yhat.sep)^(data.2$y))*((1-L2$yhat.sep)^(1-data.2$y))
 
-L3<-data.frame(yhat.order= (data.3$donoun / (1 + exp(-(mean(orderd$aAccPas) + mean(orderd$bAccPas) * data.3$x + mean(orderd$gAccPas) * data.3$iosum + mean(orderd$dAccPas) * data.3$iosum * data.3$x)))))
-L3$phat.order=((L3$yhat.order)^(data.3$y))*((1-L3$yhat.order)^(1-data.3$y))
+L3<-data.frame(yhat.sep= (data.3$donoun / (1 + exp(-(mean(sepd$aAccPas) + mean(sepd$bAccPas) * data.3$x + mean(sepd$gAccPas) * data.3$iosum + mean(sepd$dAccPas) * data.3$iosum * data.3$x)))))
+L3$phat.sep=((L3$yhat.sep)^(data.3$y))*((1-L3$yhat.sep)^(1-data.3$y))
 
-L4<-data.frame(yhat.order= ((1 - ((1 - mean(orderd$order)) * data.4$iopro))/ (1 + exp(-(mean(orderd$aToPas) + mean(orderd$bToPas) * data.4$x + mean(orderd$gToPas) * data.4$iosum + mean(orderd$dToPas) * data.4$iosum * data.4$x)))))
-L4$phat.order=((L4$yhat.order)^(data.4$y))*((1-L4$yhat.order)^(1-data.4$y))
+L4<-data.frame(yhat.sep= ((1 - ((1 - mean(sepd$order)) * data.4$iopro))/ (1 + exp(-(mean(sepd$aToPas) + mean(sepd$bToPas) * data.4$x + mean(sepd$gToPas) * data.4$iosum + mean(sepd$dToPas) * data.4$iosum * data.4$x)))))
+L4$phat.sep=((L4$yhat.sep)^(data.4$y))*((1-L4$yhat.sep)^(1-data.4$y))
 
 Order1500 <- margin.table(table(subset(joint.data,(Type=='AD'|Type=='DA')&Year>1500&IO=='IONoun'&DO=='DONoun')$Type))
 AD1500 <- margin.table(table(subset(joint.data,Type=='AD'&Year>1500&IO=='IONoun'&DO=='DONoun')$Type))
 ord = AD1500/Order1500
+
+load('order.RData')
+orderd<-as.data.frame(order)
+
+
+L1$yhat.order= ((1 - ((1 - ord) * data.1$iodo))/ (1 + exp(-(mean(orderd$aToAD) + mean(orderd$bToAD) * data.1$x + mean(orderd$gToAD) * data.1$iosum + mean(orderd$dToAD) * data.1$iosum * data.1$x))))
+L1$phat.order=((L1$yhat.order)^(data.1$y))*((1-L1$yhat.order)^(1-data.1$y))
+
+L2$yhat.order= (((1 - ((1 - ord) * data.2$iopro)) * data.2$donoun)/ (1 + exp(-(mean(orderd$aToDA) + mean(orderd$bToDA) * data.2$x + mean(orderd$gToDA) * data.2$iosum + mean(orderd$dToDA) * data.2$iosum * data.2$x)))) * (1 - (mean(orderd$heavy) / (1 + exp(-(mean(orderd$aAccAct) + mean(orderd$bAccAct) * data.2$x + mean(orderd$gAccAct) * data.2$iosum + mean(orderd$dAccAct) * data.2$iosum * data.2$x)))))
+L2$phat.order=((L2$yhat.order)^(data.2$y))*((1-L2$yhat.order)^(1-data.2$y))
+
+L3$yhat.order= (data.3$donoun / (1 + exp(-(mean(orderd$aAccPas) + mean(orderd$bAccPas) * data.3$x + mean(orderd$gAccPas) * data.3$iosum + mean(orderd$dAccPas) * data.3$iosum * data.3$x))))
+L3$phat.order=((L3$yhat.order)^(data.3$y))*((1-L3$yhat.order)^(1-data.3$y))
+
+L4$yhat.order= ((1 - ((1 - ord) * data.4$iopro))/ (1 + exp(-(mean(orderd$aToPas) + mean(orderd$bToPas) * data.4$x + mean(orderd$gToPas) * data.4$iosum + mean(orderd$dToPas) * data.4$iosum * data.4$x))))
+L4$phat.order=((L4$yhat.order)^(data.4$y))*((1-L4$yhat.order)^(1-data.4$y))
 
 load('noint.RData')
 noid<-as.data.frame(noint)
@@ -439,41 +455,47 @@ L3$phat.agbgsame_ad=((L3$yhat.agbgsame_ad)^(data.3$y))*((1-L3$yhat.agbgsame_ad)^
 L4$yhat.agbgsame_ad= ((1 - ((1 - ord) * data.4$iopro))/ (1 + exp(-(mean(samed$aToPas) + mean(samed$bToAD) * data.4$x + mean(samed$gToAD) * data.4$iosum))))
 L4$phat.agbgsame_ad=((L4$yhat.agbgsame_ad)^(data.4$y))*((1-L4$yhat.agbgsame_ad)^(1-data.4$y))
 
-load('abgsame_act.RData')
-abgsamed_act<-as.data.frame(abgsame_act)
-samed<-as.data.frame(abgsame_act)
+load('abtogactsame.RData')
+abtogactsamed<-as.data.frame(abtogactsame)
+samed<-as.data.frame(abtogactsame)
 
-L1$yhat.abtogactsame= ((1 - ((1 - ord) * data.1$iodo))/ (1 + exp(-(mean(samed$aToAD) + mean(abgsamed_to$bTo) * data.1$x + mean(samed$gToAct) * data.1$iosum))))
+L1$yhat.abtogactsame= ((1 - ((1 - ord) * data.1$iodo))/ (1 + exp(-(mean(samed$aToAD) + mean(samed$bTo) * data.1$x + mean(samed$gToAct) * data.1$iosum))))
 L1$phat.abtogactsame=((L1$yhat.abtogactsame)^(data.1$y))*((1-L1$yhat.abtogactsame)^(1-data.1$y))
 
-L2$yhat.abtogactsame= (((1 - ((1 - ord) * data.2$iopro)) * data.2$donoun)/ (1 + exp(-(mean(samed$aToDA) + mean(abgsamed_to$bTo) * data.2$x + mean(samed$gToAct) * data.2$iosum)))) * (1 - (mean(samed$heavy) / (1 + exp(-(mean(samed$aAccAct) + mean(samed$bAcc) * data.2$x + mean(samed$gAccAct) * data.2$iosum)))))
+L2$yhat.abtogactsame= (((1 - ((1 - ord) * data.2$iopro)) * data.2$donoun)/ (1 + exp(-(mean(samed$aToDA) + mean(samed$bTo) * data.2$x + mean(samed$gToAct) * data.2$iosum)))) * (1 - (mean(samed$heavy) / (1 + exp(-(mean(samed$aAccAct) + mean(samed$bAcc) * data.2$x + mean(samed$gAccAct) * data.2$iosum)))))
 L2$phat.abtogactsame=((L2$yhat.abtogactsame)^(data.2$y))*((1-L2$yhat.abtogactsame)^(1-data.2$y))
 
 L3$yhat.abtogactsame= (data.3$donoun / (1 + exp(-(mean(samed$aAccPas) + mean(samed$bAcc) * data.3$x + mean(samed$gAccPas) * data.3$iosum))))
 L3$phat.abtogactsame=((L3$yhat.abtogactsame)^(data.3$y))*((1-L3$yhat.abtogactsame)^(1-data.3$y))
 
-L4$yhat.abtogactsame= ((1 - ((1 - ord) * data.4$iopro))/ (1 + exp(-(mean(samed$aToPas) + mean(abgsamed_to$bTo) * data.4$x + mean(samed$gToPas) * data.4$iosum))))
+L4$yhat.abtogactsame= ((1 - ((1 - ord) * data.4$iopro))/ (1 + exp(-(mean(samed$aToPas) + mean(samed$bTo) * data.4$x + mean(samed$gToPas) * data.4$iosum))))
 L4$phat.abtogactsame=((L4$yhat.abtogactsame)^(data.4$y))*((1-L4$yhat.abtogactsame)^(1-data.4$y))
 
-load('abgsame_act.RData')
-samed<-as.data.frame(abgsame_act)
+load('abactgtosame.RData')
+abactgtosamed<-as.data.frame(abactgtosame)
+samed<-as.data.frame(abactgtosame)
 
-L1$yhat.abactgtosame= ((1 - ((1 - ord) * data.1$iodo))/ (1 + exp(-(mean(samed$aToAD) + mean(samed$bToAct) * data.1$x + mean(abgsamed_to$gTo) * data.1$iosum))))
+L1$yhat.abactgtosame= ((1 - ((1 - ord) * data.1$iodo))/ (1 + exp(-(mean(samed$aToAD) + mean(samed$bToAct) * data.1$x + mean(samed$gTo) * data.1$iosum))))
 L1$phat.abactgtosame=((L1$yhat.abactgtosame)^(data.1$y))*((1-L1$yhat.abactgtosame)^(1-data.1$y))
 
-L2$yhat.abactgtosame= (((1 - ((1 - ord) * data.2$iopro)) * data.2$donoun)/ (1 + exp(-(mean(samed$aToDA) + mean(samed$bToAct) * data.2$x + mean(abgsamed_to$gTo) * data.2$iosum)))) * (1 - (mean(samed$heavy) / (1 + exp(-(mean(samed$aAccAct) + mean(samed$bAcc) * data.2$x + mean(samed$gAccAct) * data.2$iosum)))))
+L2$yhat.abactgtosame= (((1 - ((1 - ord) * data.2$iopro)) * data.2$donoun)/ (1 + exp(-(mean(samed$aToDA) + mean(samed$bToAct) * data.2$x + mean(samed$gTo) * data.2$iosum)))) * (1 - (mean(samed$heavy) / (1 + exp(-(mean(samed$aAccAct) + mean(samed$bAcc) * data.2$x + mean(samed$gAccAct) * data.2$iosum)))))
 L2$phat.abactgtosame=((L2$yhat.abactgtosame)^(data.2$y))*((1-L2$yhat.abactgtosame)^(1-data.2$y))
 
 L3$yhat.abactgtosame= (data.3$donoun / (1 + exp(-(mean(samed$aAccPas) + mean(samed$bAcc) * data.3$x + mean(samed$gAccPas) * data.3$iosum))))
 L3$phat.abactgtosame=((L3$yhat.abactgtosame)^(data.3$y))*((1-L3$yhat.abactgtosame)^(1-data.3$y))
 
-L4$yhat.abactgtosame= ((1 - ((1 - ord) * data.4$iopro))/ (1 + exp(-(mean(samed$aToPas) + mean(samed$bToPas) * data.4$x + mean(abgsamed_to$gTo) * data.4$iosum))))
+L4$yhat.abactgtosame= ((1 - ((1 - ord) * data.4$iopro))/ (1 + exp(-(mean(samed$aToPas) + mean(samed$bToPas) * data.4$x + mean(samed$gTo) * data.4$iosum))))
 L4$phat.abactgtosame=((L4$yhat.abactgtosame)^(data.4$y))*((1-L4$yhat.abactgtosame)^(1-data.4$y))
 
 L<-as.data.frame(rbind(L1,L2,L3,L4))
-names = 'order'
-AIC = (2*dim(orderd)[2])-(2*sum(log(subset(L,phat.order!=0&phat.order!=1)$phat.order)))
-BIC = (log(dim(subset(L,phat.order!=0&phat.order!=1))[1])*dim(orderd)[2])-(2*sum(log(subset(L,phat.order!=0&phat.order!=1)$phat.order)))
+
+names = 'sep'
+AIC = (2*dim(sepd)[2])-(2*sum(log(subset(L,phat.sep!=0&phat.sep!=1)$phat.sep)))
+BIC = (log(dim(subset(L,phat.sep!=0&phat.sep!=1))[1])*dim(sepd)[2])-(2*sum(log(subset(L,phat.sep!=0&phat.sep!=1)$phat.sep)))
+
+names = c(names,'order')
+AIC = c(AIC,(2*dim(orderd)[2])-(2*sum(log(subset(L,phat.order!=0&phat.order!=1)$phat.order))))
+BIC = c(BIC,(log(dim(subset(L,phat.order!=0&phat.order!=1))[1])*dim(orderd)[2])-(2*sum(log(subset(L,phat.order!=0&phat.order!=1)$phat.order))))
 
 names = c(names,'noint')
 AIC = c(AIC,(2*dim(noid)[2])-(2*sum(log(subset(L,phat.noint!=0&phat.noint!=1)$phat.noint))))
@@ -562,12 +584,12 @@ AIC = c(AIC,(2*dim(agbgsamed_ad)[2])-(2*sum(log(subset(L,phat.agbgsame_ad!=0&pha
 BIC = c(BIC,(log(dim(subset(L,phat.agbgsame_ad!=0&phat.agbgsame_ad!=1))[1])*dim(agbgsamed_ad)[2])-(2*sum(log(subset(L,phat.agbgsame_ad!=0&phat.agbgsame_ad!=1)$phat.agbgsame_ad))))
 
 names = c(names,'abtogactsame')
-AIC = c(AIC,(2*(dim(abgsamed_act)[2]-1))-(2*sum(log(subset(L,phat.abtogactsame!=0&phat.abtogactsame!=1)$phat.abtogactsame))))
-BIC = c(BIC,(log(dim(subset(L,phat.abtogactsame!=0&phat.abtogactsame!=1))[1])*(dim(abgsamed_act)[2]-1))-(2*sum(log(subset(L,phat.abtogactsame!=0&phat.abtogactsame!=1)$phat.abtogactsame))))
+AIC = c(AIC,(2*(dim(abtogactsamed)[2]))-(2*sum(log(subset(L,phat.abtogactsame!=0&phat.abtogactsame!=1)$phat.abtogactsame))))
+BIC = c(BIC,(log(dim(subset(L,phat.abtogactsame!=0&phat.abtogactsame!=1))[1])*(dim(abtogactsamed)[2]))-(2*sum(log(subset(L,phat.abtogactsame!=0&phat.abtogactsame!=1)$phat.abtogactsame))))
 
 names = c(names,'abactgtosame')
-AIC = c(AIC,(2*(dim(abgsamed_act)[2]-1))-(2*sum(log(subset(L,phat.abactgtosame!=0&phat.abactgtosame!=1)$phat.abactgtosame))))
-BIC = c(BIC,(log(dim(subset(L,phat.abactgtosame!=0&phat.abactgtosame!=1))[1])*(dim(abgsamed_act)[2]-1))-(2*sum(log(subset(L,phat.abactgtosame!=0&phat.abactgtosame!=1)$phat.abactgtosame))))
+AIC = c(AIC,(2*(dim(abactgtosamed)[2]))-(2*sum(log(subset(L,phat.abactgtosame!=0&phat.abactgtosame!=1)$phat.abactgtosame))))
+BIC = c(BIC,(log(dim(subset(L,phat.abactgtosame!=0&phat.abactgtosame!=1))[1])*(dim(abactgtosamed)[2]))-(2*sum(log(subset(L,phat.abactgtosame!=0&phat.abactgtosame!=1)$phat.abactgtosame))))
 
 tab<-as.table(cbind(AIC,BIC))
 row.names(tab)<-names

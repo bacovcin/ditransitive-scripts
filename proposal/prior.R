@@ -83,6 +83,9 @@ prior <- list(N = length(real.data$x),y=real.data$y,x=real.data$x,cond=real.data
               gSigmaAccAct=summary(modAccPas)$coe[3,2]*3,gSigmaAccPas=summary(modAccPas)$coe[3,2]*2,
               gSigmaToPas = summary(modToPas)$coe[3,2]*2)
 
+Order1500 <- margin.table(table(subset(joint.data,(Type=='AD'|Type=='DA')&Year>1500&IO=='IONoun'&DO=='DONoun')$Type))
+AD1500 <- margin.table(table(subset(joint.data,Type=='AD'&Year>1500&IO=='IONoun'&DO=='DONoun')$Type))
+
 sepprior <- c(prior, list(
               dMuToAD = summary(modToAD)$coe[4,1],dMuToDA=summary(modToAD)$coe[4,1],
               dMuAccAct=summary(modAccPas)$coe[4,1],dMuAccPas=summary(modAccPas)$coe[4,1],
@@ -90,11 +93,8 @@ sepprior <- c(prior, list(
               dSigmaToAD = summary(modToAD)$coe[4,2]*2,dSigmaToDA=summary(modToAD)$coe[4,2]*3,
               dSigmaAccAct=summary(modAccPas)$coe[4,2]*3,dSigmaAccPas=summary(modAccPas)$coe[4,2]*2,
               dSigmaToPas = summary(modToPas)$coe[4,2]*2,
-	      orderMu = .5, orderSigma = .25, heavyMu = .5, heavySigma = .3
+	      orderMu = AD1500/Order1500, orderSigma = .025, heavyMu = .9, heavySigma = .1
 	     ))
-
-Order1500 <- margin.table(table(subset(joint.data,(Type=='AD'|Type=='DA')&Year>1500&IO=='IONoun'&DO=='DONoun')$Type))
-AD1500 <- margin.table(table(subset(joint.data,Type=='AD'&Year>1500&IO=='IONoun'&DO=='DONoun')$Type))
 
 orderprior <- c(prior, list(
               dMuToAD = summary(modToAD)$coe[4,1],dMuToDA=summary(modToAD)$coe[4,1],
@@ -103,7 +103,7 @@ orderprior <- c(prior, list(
               dSigmaToAD = summary(modToAD)$coe[4,2]*2,dSigmaToDA=summary(modToAD)$coe[4,2]*3,
               dSigmaAccAct=summary(modAccPas)$coe[4,2]*3,dSigmaAccPas=summary(modAccPas)$coe[4,2]*2,
               dSigmaToPas = summary(modToPas)$coe[4,2]*2,
-              orderMu = AD1500/Order1500, orderSigma = .025, heavyMu = .9, heavySigma = .1
+              order = AD1500/Order1500, heavyMu = .9, heavySigma = .1
              ))
 
 nointprior <- c(prior, list(

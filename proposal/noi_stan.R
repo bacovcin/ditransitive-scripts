@@ -78,6 +78,16 @@ abgsame_act <- stan(fit=abgsame_act,data=nointprior,iter = 3000, chains = 3, par
 print(abgsame_act,digits=4)
 save(abgsame_act,file='abgsame_act.RData')
 
+abtogactsame <- stan(file='abtogactsame.stan',data=nointprior,iter=10,chains = 1, pars=c('aToAD','aToDA','aAccAct','aAccPas','aToPas','bTo','bAcc','gToAct','gAccAct','gAccPas','gToPas','heavy'))
+abtogactsame <- stan(fit=abtogactsame,data=nointprior,iter = 3000, chains = 3, pars=c('aToAD','aToDA','aAccAct','aAccPas','aToPas','bTo','bAcc','gToAct','gAccAct','gAccPas','gToPas','heavy'))
+print(abtogactsame,digits=4)
+save(abtogactsame,file='abtogactsame.RData')
+
+abactgtosame <- stan(file='abactgtosame.stan',data=nointprior,iter=10,chains = 1, pars=c('aToAD','aToDA','aAccAct','aAccPas','aToPas','bToAct','bAcc','bToPas','gTo','gAccAct','gAccPas','heavy'))
+abactgtosame <- stan(fit=abactgtosame,data=nointprior,iter = 3000, chains = 3, pars=c('aToAD','aToDA','aAccAct','aAccPas','aToPas','bToAct','bAcc','bToPas','gTo','gAccAct','gAccPas','heavy'))
+print(abactgtosame,digits=4)
+save(abactgtosame,file='abactgtosame.RData')
+
 abgsame_to <- stan(file='abgsame_to.stan',data=nointprior,iter=10,chains = 1, pars=c('aToAD','aToDA','aAccAct','aAccPas','aToPas','bTo','bAcc','gTo','gAccAct','gAccPas','heavy'))
 abgsame_to <- stan(fit=abgsame_to,data=nointprior,iter = 3000, chains = 3, pars=c('aToAD','aToDA','aAccAct','aAccPas','aToPas','bTo','bAcc','gTo','gAccAct','gAccPas','heavy'))
 print(abgsame_to,digits=4)

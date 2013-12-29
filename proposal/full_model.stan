@@ -134,6 +134,7 @@ model {
   dToPas ~ normal(dMuToPas, dSigmaToPas) T[-5,5];
 
   heavy ~ normal(heavyMu, heavySigma) T[0,1.0];
+  order ~ normal(orderMu, orderSigma) T[0,1.0];
  
   y ~ bernoulli(mu);
 }
