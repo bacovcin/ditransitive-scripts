@@ -43,9 +43,9 @@ joint.data$Bin<-as.numeric(as.character(joint.data$Bin))
 new.data.1<-ddply(subset(joint.data,Cond==1),.(Type,Bin,IO,DO),summarize,new.val=sum(Value)/sum(!is.na(Value)),n=sum(!is.na(Value)))
 new.data.2<-ddply(subset(joint.data,Cond==2),.(Type,Bin,IO,DO),summarize,new.val=sum(Value)/sum(!is.na(Value)),n=sum(!is.na(Value)))
 new.data.3<-ddply(subset(joint.data,Cond==3),.(Type,Bin,IO,DO),summarize,new.val=sum(Value)/sum(!is.na(Value)),n=sum(!is.na(Value)))
-new.data.3$Type<-factor(c('Passive'))
+new.data.3$Type<-factor(c('BarePassive'))
 new.data.4<-ddply(subset(joint.data,Cond==4),.(Type,Bin,IO,DO),summarize,new.val=sum(Value)/sum(!is.na(Value)),n=sum(!is.na(Value)))
-new.data.4$Type<-factor(c('Passive To'))
+new.data.4$Type<-factor(c('ToPassive'))
 new.data<-as.data.frame(rbind(new.data.1,new.data.2,new.data.3,new.data.4))
 
 joint.data$iosum <- factor(joint.data$IO)
@@ -593,78 +593,62 @@ BIC = c(BIC,(log(dim(subset(L,phat.abactgtosame!=0&phat.abactgtosame!=1))[1])*(d
 
 tab<-as.table(cbind(AIC,BIC))
 row.names(tab)<-names
-
-pred.data.ad<-data.frame(Year=rep(seq(650,1950),4),iosum=c(rep(1,1301),rep(1,1301),rep(-1,1301),rep(-1,1301)),dosum=c(rep(1,1301),rep(-1,1301),rep(1,1301),rep(-1,1301)),iopro=c(rep(1,1301),rep(1,1301),rep(0,1301),rep(0,1301)),donoun=c(rep(0,1301),rep(1,1301),rep(0,1301),rep(1,1301)),Type='AD')
-pred.data.ad$iodo<-factor(pred.data.ad$iosum+pred.data.ad$dosum)
-levels(pred.data.ad$iodo)<-c('0','0','1')
-pred.data.ad$iodo<-as.numeric(as.character(pred.data.ad$iodo))
-pred.data.ad$x<-(pred.data.ad$Year-mean(joint.data$Year))/sd(joint.data$Year)
-pred.data.da<-data.frame(Year=rep(seq(650,1950),4),iosum=c(rep(1,1301),rep(1,1301),rep(-1,1301),rep(-1,1301)),dosum=c(rep(1,1301),rep(-1,1301),rep(1,1301),rep(-1,1301)),iopro=c(rep(1,1301),rep(1,1301),rep(0,1301),rep(0,1301)),donoun=c(rep(0,1301),rep(1,1301),rep(0,1301),rep(1,1301)),Type='DA')
-pred.data.da$iodo<-factor(pred.data.da$iosum+pred.data.da$dosum)
-levels(pred.data.da$iodo)<-c('0','0','1')
-pred.data.da$iodo<-as.numeric(as.character(pred.data.da$iodo))
-pred.data.da$x<-(pred.data.da$Year-mean(joint.data$Year))/sd(joint.data$Year)
-pred.data.pas<-data.frame(Year=rep(seq(650,1950),4),iosum=c(rep(1,1301),rep(1,1301),rep(-1,1301),rep(-1,1301)),dosum=c(rep(1,1301),rep(-1,1301),rep(1,1301),rep(-1,1301)),iopro=c(rep(1,1301),rep(1,1301),rep(0,1301),rep(0,1301)),donoun=c(rep(0,1301),rep(1,1301),rep(0,1301),rep(1,1301)),Type='Passive')
-pred.data.pas$iodo<-factor(pred.data.pas$iosum+pred.data.pas$dosum)
-levels(pred.data.pas$iodo)<-c('0','0','1')
-pred.data.pas$iodo<-as.numeric(as.character(pred.data.pas$iodo))
-pred.data.pas$x<-(pred.data.pas$Year-mean(joint.data$Year))/sd(joint.data$Year)
-pred.data.pasto<-data.frame(Year=rep(seq(650,1950),4),iosum=c(rep(1,1301),rep(1,1301),rep(-1,1301),rep(-1,1301)),dosum=c(rep(1,1301),rep(-1,1301),rep(1,1301),rep(-1,1301)),iopro=c(rep(1,1301),rep(1,1301),rep(0,1301),rep(0,1301)),donoun=c(rep(0,1301),rep(1,1301),rep(0,1301),rep(1,1301)),Type='Passive To')
-pred.data.pasto$iodo<-factor(pred.data.pasto$iosum+pred.data.pasto$dosum)
-levels(pred.data.pasto$iodo)<-c('0','0','1')
-pred.data.pasto$iodo<-as.numeric(as.character(pred.data.pasto$iodo))
-pred.data.pasto$x<-(pred.data.pasto$Year-mean(joint.data$Year))/sd(joint.data$Year)
-
-load('abtogactsame.RData')
-abtogactsamed<-as.data.frame(abtogactsame)
-samed<-as.data.frame(abtogactsame)
-
-pred.data.ad$abtogactsame= ((1 - ((1 - ord) * pred.data.ad$iodo))/ (1 + exp(-(mean(samed$aToAD) + mean(samed$bTo) * pred.data.ad$x + mean(samed$gToAct) * pred.data.ad$iosum))))
-pred.data.da$abtogactsame= (((1 - ((1 - ord) * pred.data.da$iopro)) * pred.data.da$donoun)/ (1 + exp(-(mean(samed$aToDA) + mean(samed$bTo) * pred.data.da$x + mean(samed$gToAct) * pred.data.da$iosum)))) * (1 - (mean(samed$heavy) / (1 + exp(-(mean(samed$aAccAct) + mean(samed$bAcc) * pred.data.da$x + mean(samed$gAccAct) * pred.data.da$iosum)))))
-pred.data.pas$abtogactsame= (pred.data.pas$donoun / (1 + exp(-(mean(samed$aAccPas) + mean(samed$bAcc) * pred.data.pas$x + mean(samed$gAccPas) * pred.data.pas$iosum))))
-pred.data.pasto$abtogactsame= ((1 - ((1 - ord) * pred.data.pasto$iopro))/ (1 + exp(-(mean(samed$aToPas) + mean(samed$bTo) * pred.data.pasto$x + mean(samed$gToPas) * pred.data.pasto$iosum))))
-
-load('abactgtosame.RData')
-abactgtosamed<-as.data.frame(abactgtosame)
-samed<-as.data.frame(abactgtosame)
-
-pred.data.ad$abactgtosame= ((1 - ((1 - ord) * pred.data.ad$iodo))/ (1 + exp(-(mean(samed$aToAD) + mean(samed$bToAct) * pred.data.ad$x + mean(samed$gTo) * pred.data.ad$iosum))))
-pred.data.da$abactgtosame= (((1 - ((1 - ord) * pred.data.da$iopro)) * pred.data.da$donoun)/ (1 + exp(-(mean(samed$aToDA) + mean(samed$bToAct) * pred.data.da$x + mean(samed$gTo) * pred.data.da$iosum)))) * (1 - (mean(samed$heavy) / (1 + exp(-(mean(samed$aAccAct) + mean(samed$bAcc) * pred.data.da$x + mean(samed$gAccAct) * pred.data.da$iosum)))))
-pred.data.pas$abactgtosame= (pred.data.pas$donoun / (1 + exp(-(mean(samed$aAccPas) + mean(samed$bAcc) * pred.data.pas$x + mean(samed$gAccPas) * pred.data.pas$iosum))))
-pred.data.pasto$abactgtosame= ((1 - ((1 - ord) * pred.data.pasto$iopro))/ (1 + exp(-(mean(samed$aToPas) + mean(samed$bToAct) * pred.data.pasto$x + mean(samed$gTo) * pred.data.pasto$iosum))))
-
-load('abgsame_act.RData')
-abgsamed_act<-as.data.frame(abgsame_act)
-samed<-as.data.frame(abgsame_act)
-
-pred.data.ad$abgsame_act= ((1 - ((1 - ord) * pred.data.ad$iodo))/ (1 + exp(-(mean(samed$aToAD) + mean(samed$bToAct) * pred.data.ad$x + mean(samed$gToAct) * pred.data.ad$iosum))))
-pred.data.da$abgsame_act= (((1 - ((1 - ord) * pred.data.da$iopro)) * pred.data.da$donoun)/ (1 + exp(-(mean(samed$aToDA) + mean(samed$bToAct) * pred.data.da$x + mean(samed$gToAct) * pred.data.da$iosum)))) * (1 - (mean(samed$heavy) / (1 + exp(-(mean(samed$aAccAct) + mean(samed$bAcc) * pred.data.da$x + mean(samed$gAccAct) * pred.data.da$iosum)))))
-pred.data.pas$abgsame_act= (pred.data.pas$donoun / (1 + exp(-(mean(samed$aAccPas) + mean(samed$bAcc) * pred.data.pas$x + mean(samed$gAccPas) * pred.data.pas$iosum))))
-pred.data.pasto$abgsame_act= ((1 - ((1 - ord) * pred.data.pasto$iopro))/ (1 + exp(-(mean(samed$aToPas) + mean(samed$bToPas) * pred.data.pasto$x + mean(samed$gToPas) * pred.data.pasto$iosum))))
-
-
-load('abgsame_to.RData')
-abgsamed_to<-as.data.frame(abgsame_to)
-samed<-as.data.frame(abgsame_to)
-
-pred.data.ad$abgsame_to= ((1 - ((1 - ord) * pred.data.ad$iodo))/ (1 + exp(-(mean(samed$aToAD) + mean(samed$bTo) * pred.data.ad$x + mean(samed$gTo) * pred.data.ad$iosum))))
-pred.data.da$abgsame_to= (((1 - ((1 - ord) * pred.data.da$iopro)) * pred.data.da$donoun)/ (1 + exp(-(mean(samed$aToDA) + mean(samed$bTo) * pred.data.da$x + mean(samed$gTo) * pred.data.da$iosum)))) * (1 - (mean(samed$heavy) / (1 + exp(-(mean(samed$aAccAct) + mean(samed$bAcc) * pred.data.da$x + mean(samed$gAccAct) * pred.data.da$iosum)))))
-pred.data.pas$abgsame_to= (pred.data.pas$donoun / (1 + exp(-(mean(samed$aAccPas) + mean(samed$bAcc) * pred.data.pas$x + mean(samed$gAccPas) * pred.data.pas$iosum))))
-pred.data.pasto$abgsame_to= ((1 - ((1 - ord) * pred.data.pasto$iopro))/ (1 + exp(-(mean(samed$aToPas) + mean(samed$bTo) * pred.data.pasto$x + mean(samed$gTo) * pred.data.pasto$iosum))))
-
-pred.data<-as.data.frame(rbind(pred.data.ad,pred.data.da,pred.data.pas,pred.data.pasto))
-pred.data$IO<-factor(pred.data$iosum)
-levels(pred.data$IO)<-c('IONoun','IOPronoun')
-pred.data$DO<-factor(pred.data$dosum)
-levels(pred.data$DO)<-c('DONoun','DOPronoun')
-
-ggplot(data=new.data,aes(Bin,new.val,colour=IO))+geom_point(aes(size=log2(n)))+
-      geom_line(data=pred.data,aes(Year,abtogactsame,linetype='abtogactsame'))+
-      geom_line(data=pred.data,aes(Year,abactgtosame,linetype='abactgtosame'))+
-      geom_line(data=pred.data,aes(Year,abgsame_act,linetype='abgsame_act'))+
-      geom_line(data=pred.data,aes(Year,abgsame_to,linetype='abgsame_to'))+
-      facet_grid(DO~Type)
-
 tab
 names[which.min(AIC)]
 names[which.min(BIC)]
+
+load('da_stan.RData')
+dad<-as.data.frame(mod)
+load('new_sep.RData')
+sepd<-as.data.frame(sep)
+
+pred.data.ad<-data.frame(Year=rep(seq(650,1950),4),is.iopro=c(rep(1,1301),rep(1,1301),rep(-1,1301),rep(-1,1301)),is.dopro=c(rep(1,1301),rep(-1,1301),rep(1,1301),rep(-1,1301)),fac.iopro=c(rep(1,1301),rep(1,1301),rep(0,1301),rep(0,1301)),fac.dopro=c(rep(1,1301),rep(0,1301),rep(1,1301),rep(0,1301)))
+pred.data.ad$Year<-as.numeric(as.character(pred.data.ad$Year))
+pred.data.ad$is.iopro<-as.numeric(as.character(pred.data.ad$is.iopro))
+pred.data.ad$is.iodo<-factor(pred.data.ad$is.iopro+pred.data.ad$is.dopro)
+levels(pred.data.ad$is.iodo)<-c('0','0','1')
+pred.data.ad$is.iodo<-as.numeric(as.character(pred.data.ad$is.iodo))
+pred.data.ad$sYear<-(pred.data.ad$Year-mean(joint.data$Year))/sd(joint.data$Year)
+pred.data.ad$Type<-factor(c('AD'))
+pred.data.ad$IO<-factor(pred.data.ad$is.iopro)
+pred.data.ad$DO<-factor(pred.data.ad$is.dopro)
+levels(pred.data.ad$IO)<-c('IONoun','IOPronoun')
+levels(pred.data.ad$DO)<-c('DONoun','DOPronoun')
+
+Order1500 <- margin.table(table(subset(joint.data,(Type=='AD'|Type=='DA')&Year>1500&IO=='IONoun'&DO=='DONoun')$Type))
+AD1500 <- margin.table(table(subset(joint.data,Type=='AD'&Year>1500&IO=='IONoun'&DO=='DONoun')$Type))
+
+pred.data.ad$Value.da<-(1-((1-AD1500/Order1500)*pred.data.ad$is.iodo))/(1+exp(-(mean(sepd$a1)+mean(dad$b1)*pred.data.ad$sYear+mean(dad$g1)*pred.data.ad$is.iopro)))
+pred.data.ad$Value.sep<-(1-((1-AD1500/Order1500)*pred.data.ad$is.iodo))/(1+exp(-(mean(sepd$a1)+mean(sepd$b1)*pred.data.ad$sYear+mean(sepd$g1)*pred.data.ad$is.iopro)))
+pred.data.ad$Value.both<-(1-((1-AD1500/Order1500)*pred.data.ad$is.iodo))/(1+exp(-(mean(sepd$a1)+mean(c(dad$b1,sepd$b1))*pred.data.ad$sYear+mean(c(dad$g1,sepd$g1))*pred.data.ad$is.iopro)))
+
+pred.data.pasto<-pred.data.ad
+levels(pred.data.pasto$Type)<-c('PasTo')
+
+pred.data.pasto$Value.da<-(1-((1-AD1500/Order1500)*pred.data.pasto$fac.iopro))/(1+exp(-(mean(sepd$a1)+mean(dad$b1)*pred.data.pasto$sYear+mean(dad$g1)*pred.data.pasto$is.iopro)))
+pred.data.pasto$Value.sep<-(1-((1-AD1500/Order1500)*pred.data.pasto$fac.iopro))/(1+exp(-(mean(sepd$a1)+mean(sepd$b1)*pred.data.pasto$sYear+mean(sepd$g1)*pred.data.pasto$is.iopro)))
+pred.data.pasto$Value.both<-(1-((1-AD1500/Order1500)*pred.data.pasto$fac.iopro))/(1+exp(-(mean(sepd$a1)+mean(c(dad$b1,sepd$b1))*pred.data.pasto$sYear+mean(c(dad$g1,sepd$g1))*pred.data.pasto$is.iopro)))
+
+pred.data.pas<-pred.data.ad
+levels(pred.data.pas$Type)<-c('Passive')
+
+pred.data.pas$Value.da<-(1-(1*pred.data.pas$fac.dopro))/(1+exp(-(mean(sepd$a4)+mean(dad$b2)*pred.data.pas$sYear+mean(dad$g2)*pred.data.pas$is.iopro)))
+pred.data.pas$Value.sep<-(1-(1*pred.data.pas$fac.dopro))/(1+exp(-(mean(sepd$a4)+mean(sepd$b2)*pred.data.pas$sYear+mean(sepd$g3)*pred.data.pas$is.iopro)))
+pred.data.pas$Value.both<-(1-(1*pred.data.pas$fac.dopro))/(1+exp(-(mean(sepd$a4)+mean(c(dad$b2,sepd$b2))*pred.data.pas$sYear+mean(c(dad$g2,sepd$g3))*pred.data.pas$is.iopro)))
+
+pred.data.da<-pred.data.ad
+levels(pred.data.da$Type)<-c('DA')
+pred.data.da$Value.da<-((1-(1*pred.data.da$fac.dopro))/(1+exp(-(mean(dad$a1)+mean(dad$b1)*pred.data.da$sYear+mean(dad$g1)*pred.data.da$is.iopro))))*(1-(mean(dad$heavy)/(1+exp(-(mean(dad$a2)+mean(dad$b2)*pred.data.da$sYear+mean(dad$g2)*pred.data.da$is.iopro)))))
+pred.data.da$Value.sep<-((1-(1*pred.data.da$fac.dopro))/(1+exp(-(mean(sepd$a2)+mean(sepd$b1)*pred.data.da$sYear+mean(sepd$g2)*pred.data.da$is.iopro))))*(1-(mean(sepd$heavy)/(1+exp(-(mean(sepd$a3)+mean(sepd$b2)*pred.data.da$sYear+mean(sepd$g3)*pred.data.da$is.iopro)))))
+pred.data.da$Value.both<-((1-(1*pred.data.da$fac.dopro))/(1+exp(-(mean(c(dad$a1,sepd$a2))+mean(c(sepd$b1,dad$b1))*pred.data.da$sYear+mean(c(sepd$g2,dad$g1))*pred.data.da$is.iopro))))*(1-(mean(c(sepd$heavy,dad$heavy))/(1+exp(-(mean(c(sepd$a3,dad$a2))+mean(c(sepd$b2,dad$b2))*pred.data.da$sYear+mean(c(sepd$g3,dad$g2))*pred.data.da$is.iopro)))))
+
+pred.data<-as.data.frame(rbind(pred.data.ad,pred.data.da,pred.data.pas,pred.data.pasto))
+
+ggplot(data=new.data,aes(Bin,new.val,colour=IO))+geom_point(aes(size=log2(n)))+geom_line(data=pred.data,aes(Year,Value.da,linetype='da'))+geom_line(data=pred.data,aes(Year,Value.sep,linetype='sep'))+geom_line(data=pred.data,aes(Year,Value.both,linetype='both'))+facet_grid(DO~Type)
+
+DA with pro interaction
+pred.data.da<-pred.data.ad
+levels(pred.data.da$Type)<-c('DA')
+pred.data.da$Value.da<-(((1-((1-AD1500/Order1500)*pred.data.pasto$fac.iopro))*(1-(1*pred.data.da$fac.dopro)))/(1+exp(-(mean(dad$a1)+mean(dad$b1)*pred.data.da$sYear+mean(dad$g1)*pred.data.da$is.iopro))))*(1-(mean(dad$heavy)/(1+exp(-(mean(dad$a2)+mean(dad$b2)*pred.data.da$sYear+mean(dad$g2)*pred.data.da$is.iopro)))))
+pred.data.da$Value.sep<-(((1-((1-AD1500/Order1500)*pred.data.pasto$fac.iopro))*(1-(1*pred.data.da$fac.dopro)))/(1+exp(-(mean(sepd$a2)+mean(sepd$b1)*pred.data.da$sYear+mean(sepd$g2)*pred.data.da$is.iopro))))*(1-(mean(sepd$heavy)/(1+exp(-(mean(sepd$a3)+mean(sepd$b2)*pred.data.da$sYear+mean(sepd$g3)*pred.data.da$is.iopro)))))
+pred.data.da$Value.both<-(((1-((1-AD1500/Order1500)*pred.data.pasto$fac.iopro))*(1-(1*pred.data.da$fac.dopro)))/(1+exp(-(mean(c(dad$a1,sepd$a2))+mean(c(sepd$b1,dad$b1))*pred.data.da$sYear+mean(c(sepd$g2,dad$g1))*pred.data.da$is.iopro))))*(1-(mean(c(sepd$heavy,dad$heavy))/(1+exp(-(mean(c(sepd$a3,dad$a2))+mean(c(sepd$b2,dad$b2))*pred.data.da$sYear+mean(c(sepd$g3,dad$g2))*pred.data.da$is.iopro)))))
