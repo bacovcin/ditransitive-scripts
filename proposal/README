@@ -1,9 +1,0 @@
-Stan file nomenclature
-full all variables
-order order variable fixed by ration of AD/DA order
-noi subset of order without interaction terms
-same subset of noi with variable held constant between functions
-b = To slope (act means that AD/DA have the same slope vs. pas, to means all have the same slope, ad means ad/pas have the same slope vs. da)
-a = Acc reanalysis slope
-
-g is a subset of b or a in which the io interaction is also identical as well as the slope
