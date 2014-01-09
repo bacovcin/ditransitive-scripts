@@ -1,4 +1,4 @@
-dit <- read.csv('dit.csv')
+dit <- read.csv('~/Dropbox/Research/Dissertation/Current/Eng/dit.csv')
 
 dit$NGenre<-dit$Genre
 levels(dit$NGenre)<-c("FORMAL","FORMAL","INFORMAL","FORMAL","FORMAL","FORMAL","FORMAL","FORMAL","FORMAL","FORMAL","FORMAL","INFORMAL","FORMAL","FORMAL","FORMAL","FORMAL","TRANSLATION","POETRY","FORMAL","INFORMAL","FORMAL","FORMAL","TRANSLATION","WEIRD","WEIRD","WEIRD")
@@ -261,7 +261,7 @@ dit$PasValue<-dit$Pas
 levels(dit$PasValue)<-c('NA','1','0')
 dit$PasValue<-as.numeric(as.character(dit$PasValue))
 
-pdit<-subset(dit,NGenre!='POETRY'&NGenre!='WEIRD'&NGenre!='TRANSLATION'&Pas!='ACT'&(NVerb=='GIVE'|NVerb=='TELL'|NVerb=='PROMISE'|NVerb=='TEACH'|NVerb=='OLDENG'))
+pdit<-subset(dit,NGenre!='POETRY'&NGenre!='WEIRD'&NGenre!='TRANSLATION'&Pas!='ACT')
 
 pdit$Pas<-factor(pdit$Pas)
 pdit$NNom<-factor(pdit$NNom)
@@ -281,9 +281,13 @@ levels(pdit$DO)<-c('CP','DONoun','DOPronoun','DOEmpty','DONull','DONoun','DOPron
 pdit$IO<-factor(pdit$IO)
 pdit$DO<-factor(pdit$DO)
 
-npdit<-subset(pdit,(IOType=='DP'|IOType=='NoIO')&(IO=='IONoun'|IO=='IOPronoun')&(DO=='DONoun'|DO=='DOPronoun'))
+dit$IO <- dit$NDat
+dit$DO <- dit$NAcc
 
-rdit<-subset(dit,IOType!='NoIO'&IOType!='PP'&IO!='IONull'&IOCP!='_'&IO!='IOEmpty'&NOrder!='MONO'&Pas=='ACT'&DO!='DOEmpty')
+npdit<-subset(pdit,(IOType=='DP'|IOType=='TO'|IOType=='UNTO'|IOType=='TIL'|IOType=='NoIO')&(IO=='IONoun'|IO=='IOPronoun')&(DO=='DONoun'|DO=='DOPronoun'))
+npdit$NVerb<-factor(npdit$NVerb)
+
+rdit<-subset(dit,Pas=='ACT'&(IOType=='DP'|IOType=='TO'|IOType=='UNTO'|IOType=='TIL')&(IO=='IONoun'|IO=='IOPronoun')&(DO=='DONoun'|DO=='DOPronoun'))
 rdit$IOType<-factor(rdit$IOType)
 rdit$IO<-factor(rdit$NDat)
 rdit$DO<-factor(rdit$NAcc)
@@ -292,10 +296,9 @@ rdit$NVerb<-factor(rdit$NVerb)
 rdit$IOCP<-factor(rdit$IOCP)
 rdit$NOrder<-factor(rdit$NOrder)
 
-
-nrdit<-subset(rdit,(NVerb=='GIVE'|NVerb=='PROMISE'|NVerb=='TELL'|NVerb=='TEACH'|NVerb=='OLDENG')&NOrder!='CP'&NOrder!='MONO'&NGenre!='POETRY'&NGenre!='WEIRD'&NGenre!='TRANSLATION')
+nrdit<-subset(rdit,NOrder!='CP'&NOrder!='MONO'&NGenre!='POETRY'&NGenre!='WEIRD'&NGenre!='TRANSLATION')
 nrdit$NVerb <-factor(nrdit$NVerb)
 
 dit<-as.data.frame(rbind(npdit,nrdit))
 
-save(dit,file='dit.RData')
+save(dit,file='newdit.RData')
