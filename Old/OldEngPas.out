@@ -1,0 +1,1699 @@
+/*
+PREFACE:  
+Copyright 2010 Beth Randall
+Date:  Mon Mar 10 09:15:47 EDT 2014
+
+command file:     C:\GitHub\ditransitive-scripts-win\ditransitive-scripts\OldEngPas.q
+input file:       C:\home\Dropbox\Research\Dissertation\Current\Eng\oegive.out
+output file:      C:\GitHub\ditransitive-scripts-win\ditransitive-scripts\OldEngPas.out
+
+node:   IP*
+query:  (IP* iDoms  BE*) 
+  AND  (IP* iDoms  VBN*) 
+  AND  (IP* iDoms  NP-NOM*) 
+  AND  (IP* iDoms  NP-ACC|NP-ACC-RFL|NP-ACC-RSP|NP-DAT|NP-DAT-RFL|NP-DAT-RSP) 
+*/
+/*
+HEADER:
+source file:  C:\home\Dropbox\Research\Dissertation\Current\Eng\oegive.out
+*/
+/*
+HEADER:
+source file:  coaelhom.o3
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  coaelhom.o3		0/0/55
+*/
+/*
+HEADER:
+source file:  coaelive.o3
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  coaelive.o3		0/0/67
+*/
+/*
+HEADER:
+source file:  coalcuin
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  coalcuin		0/0/7
+*/
+/*
+HEADER:
+source file:  coalex.o23
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  coalex.o23		0/0/4
+*/
+/*
+HEADER:
+source file:  coapollo.o3
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  coapollo.o3		0/0/19
+*/
+/*
+HEADER:
+source file:  cobede.o2
+*/
+/~*
++D+at adune asetton of +tam biscoprice Winfri+de, Seaxulf his biscoprice
+onfeng: & Erconwold Eastseaxum w+as biscop seald.
+(cobede.o2,BedeHead:4.18.13.89)
+*~/
+/*
+1 IP-SUB-CON:  1 IP-SUB-CON, 8 BEDI, 13 VBN, 2 NP-NOM, 5 NP-DAT
+1 IP-SUB-CON:  1 IP-SUB-CON, 8 BEDI, 13 VBN, 10 NP-NOM-ADT, 5 NP-DAT
+*/
+( (IP-SUB-CON (NP-NOM (NR^N Erconwold))
+	      (NP-DAT (NR^D Eastseaxum))
+	      (BEDI w+as)
+	      (NP-NOM-ADT (N^N biscop))
+	      (VBN seald))
+  (ID cobede.o2,BedeHead:4.18.13.89)) 
+
+/~*
+& he +almihtigne God b+ad +t+at he hi mid his gife gescylde: & +t+at he him
+$seolfum forgeafe +t+at he moste +done w+astm heora gewinnes in heofona rices
+wuldre geseon, for+don he gearo w+are in +tam ylcan gewinne mid him beon, gif
+him lefnys seald w+are.
+(cobede.o2,Bede_1:13.56.10.524)
+*~/
+/*
+1 IP-SUB:  1 IP-SUB, 10 BEDS, 8 VBN, 5 NP-NOM, 2 NP-DAT
+*/
+( (IP-SUB (NP-DAT (PRO^D him))
+	  (NP-NOM (N^N lefnys))
+	  (VBN seald)
+	  (BEDS w+are))
+  (ID cobede.o2,Bede_1:13.56.10.524)) 
+
+/~*
+For+don +t+am menn +turh +ta +trea +tis bi+d gegearwod, +t+at he ne sy seald
++t+am ecan fyrum helle tintreges.
+(cobede.o2,Bede_1:16.68.7.632)
+*~/
+/*
+1 IP-SUB:  1 IP-SUB, 7 BEPS, 9 VBN, 2 NP-NOM, 11 NP-DAT
+*/
+( (IP-SUB (NP-NOM (PRO^N he))
+	  (NEG ne)
+	  (BEPS sy)
+	  (VBN seald)
+	  (NP-DAT (D^D +t+am)
+		  (ADJ^D ecan)
+		  (ADJ^D fyrum)
+		  (NP-GEN (NP-GEN (N^G helle))
+			  (N^G tintreges))))
+  (ID cobede.o2,Bede_1:16.68.7.632)) 
+
+/~*
++Ta he +arest his +arendwrecan sende to Eadbolde hire bre+der, se w+as +ta
+Contwara cyning, & +tisse f+amnan gemanan b+ad & wilnade, ondswarede he +t+at
++t+at alyfed n+are, +t+atte cristeno f+amne h+a+dnan men to wiife seald w+are,
++ty l+as se geleafa & +ta geryno +t+as heofonlecan cyninges mid +t+as cyninges
+gemanan $aidlad w+are, se +de +t+as so+dan cyninges bigong ne cu+de.
+(cobede.o2,Bede_2:8.120.11.1142)
+*~/
+/*
+1 IP-SUB:  1 IP-SUB, 20 BEDS, 18 VBN, 2 NP-NOM, 7 NP-DAT
+*/
+( (IP-SUB (NP-NOM (ADJ^N cristeno) (N^N f+amne))
+	  (NP-DAT (ADJ^D h+a+dnan) (N^D men))
+	  (PP (P to)
+	      (NP-DAT (N^D wiife)))
+	  (VBN seald)
+	  (BEDS w+are)
+	  (, ,)
+	  (CP-ADV (D^I +ty)
+		  (P l+as)
+		  (C 0)
+		  (IP-SUB RMV:se_geleafa_&...)))
+  (ID cobede.o2,Bede_2:8.120.11.1142)) 
+
+/~*
+W+as geo geara swa nemned fore tacnunge $+d+ara toweardan wundra, for+don +te
++t+ar +t+at heofonlice sigebeacen ar+ared beon scolde, & +t+ar heofonlic sige
++tam cinge seald w+as, & +t+ar gen to d+age heofonlic wundor m+arsode beo+d.
+(cobede.o2,Bede_3:1.156.8.1494)
+*~/
+/*
+1 IP-SUB-CON:  1 IP-SUB-CON, 17 BEDI, 15 VBN, 5 NP-NOM, 10 NP-DAT
+*/
+( (IP-SUB-CON (ADVP-LOC (ADV^L +t+ar))
+	      (NP-NOM (ADJ^N heofonlic) (N^N sige))
+	      (NP-DAT (D^D +tam) (N^D cinge))
+	      (VBN seald)
+	      (BEDI w+as))
+  (ID cobede.o2,Bede_3:1.156.8.1494)) 
+
+/~*
+ond him w+as seald seo bysen on gewrite +t+as seono+des, +t+at he sceolde to
+Rome l+adan.
+(cobede.o2,Bede_4:20.314.30.3174)
+*~/
+/*
+1 IP-MAT:  1 IP-MAT, 7 BEDI, 9 VBN, 11 NP-NOM, 4 NP-DAT
+*/
+( (IP-MAT (CONJ ond)
+	  (NP-DAT (PRO^D him))
+	  (BEDI w+as)
+	  (VBN seald)
+	  (NP-NOM (D^N seo)
+		  (N^N bysen)
+		  (PP (P on)
+		      (NP-DAT (N^D gewrite)))
+		  (NP-GEN (D^G +t+as) (N^G seono+des)))
+	  (, ,)
+	  (CP-ADV (C +t+at)
+		  (IP-SUB RMV:he_sceolde_to...))
+	  (. .))
+  (ID cobede.o2,Bede_4:20.314.30.3174)) 
+
+/~*
+Ac for+ton +te he ne wolde +ty +arran geare gehyran +tone arwyr+dan f+ader
+Ecgberht, +t+at he Sceottas hine noht sce+d+tende ne afuhte, +ta w+as him
+seald +turh wite +t+are synne, +t+at he eft +ta ne gehyrde, +ta +de hine
+wilnadon from his forwyrde gecegean.
+(cobede.o2,Bede_4:27.358.8.3599)
+*~/
+/*
+1 IP-MAT:  1 IP-MAT, 18 BEDI, 23 VBN, 13 NP-NOM-x, 20 NP-DAT
+*/
+( (IP-MAT (CONJ Ac)
+	  (CP-ADV (P for+ton)
+		  (C +te)
+		  (IP-SUB RMV:he_ne_wolde...))
+	  (, ,)
+	  (NP-NOM-x *exp*)
+	  (ADVP-TMP (ADV^T +ta))
+	  (BEDI w+as)
+	  (NP-DAT (PRO^D him))
+	  (VBN seald)
+	  (PP (P +turh)
+	      (NP (N wite)
+		  (NP-GEN (D^G +t+are) (N^G synne))))
+	  (, ,)
+	  (CP-THT-x (C +t+at)
+		    (IP-SUB RMV:he_eft_+ta...))
+	  (. .))
+  (ID cobede.o2,Bede_4:27.358.8.3599)) 
+
+/~*
+O+ter w+as seald Daniele, +ta 1 he gen to d+age rece+d, o+der Ealdhelme,
++t+are 1 he feower ger fromlice fore w+as.
+(cobede.o2,Bede_5:16.446.19.4488)
+*~/
+/*
+1 IP-MAT-1:  1 IP-MAT-1, 7 BEDI, 9 VBN, 2 NP-NOM, 11 NP-DAT
+*/
+( (IP-MAT-1 (NP-NOM (ADJ^N O+ter)
+		    (CP-REL *ICH*-2))
+	    (BEDI w+as)
+	    (VBN seald)
+	    (NP-DAT (NR^D Daniele))
+	    (, ,)
+	    (CP-REL-2 (WNP-ACC-3 (D^A +ta))
+		      (C 1)
+		      (IP-SUB RMV:*T*-3_he_gen...)))
+  (ID cobede.o2,Bede_5:16.446.19.4488)) 
+
+/~*
+Ac for+ton +te hi +after f+ace, +ta 3 him wiisc seald w+as, ma woldon of
++t+are stowe gewitan, +tonne 3 3 hi woldan rihte Eastran healdan, & eac o+tre
+regollice +deawas onfon +after gewunan +t+are Romaniscan cyricean & +tare
+apostolican, & for+ton he +ta stowe +tam sealde, +tone +te he geseah beteran
++teodscypum & +teawum gel+aredne.
+(cobede.o2,Bede_5:17.456.20.4589)
+*~/
+/*
+1 IP-SUB:  1 IP-SUB, 10 BEDI, 8 VBN, 5 NP-NOM, 2 NP-DAT
+*/
+( (IP-SUB (NP-DAT (PRO^D him))
+	  (NP-NOM (N^N wiisc))
+	  (VBN seald)
+	  (BEDI w+as))
+  (ID cobede.o2,Bede_5:17.456.20.4589)) 
+
+/~*
+& him w+as lyfnes seald +t+at he him moste scyldan & besecgan on andweardnesse
+his gesacona.
+(cobede.o2,Bede_5:17.460.23.4633)
+*~/
+/*
+1 IP-MAT:  1 IP-MAT, 7 BEDI, 14 VBN, 9 NP-NOM, 4 NP-DAT
+*/
+( (IP-MAT (CONJ &)
+	  (NP-DAT (PRO^D him))
+	  (BEDI w+as)
+	  (NP-NOM (N^N lyfnes)
+		  (CP-THT *ICH*-1))
+	  (VBN seald)
+	  (CP-THT-1 (C +t+at)
+		    (IP-SUB RMV:he_him_moste...))
+	  (. .))
+  (ID cobede.o2,Bede_5:17.460.23.4633)) 
+
+/~*
+Mid +ty 1 ic w+as seofanwintre, +ta w+as ic mid gimene minra maga seald to
+fedanne & to l+arenne +tam arwyr+tan abbude Benedicte & Ceolfer+te +after +ton.
+(cobede.o2,Bede_5:22.480.25.4822)
+*~/
+/*
+1 IP-MAT-SPE-1:  1 IP-MAT-SPE-1, 16 BEDI, 32 VBN, 18 NP-NOM-2, 36 NP-DAT
+*/
+( (IP-MAT-SPE-1 (CP-ADV-SPE (P Mid)
+			    (D^I +ty)
+			    (C 1)
+			    (IP-SUB-SPE RMV:ic_w+as_seofanwintre...))
+		(, ,)
+		(ADVP-TMP (ADV^T +ta))
+		(BEDI w+as)
+		(NP-NOM-2 (PRO^N ic))
+		(PP (P mid)
+		    (NP (N gimene)
+			(NP-GEN (PRO$^G minra) (N^G maga))))
+		(VBN seald)
+		(IP-INF-NCO-SPE RMV:*-2_to_fedanne...)
+		(NP-DAT (D^D +tam)
+			(ADJ^D arwyr+tan)
+			(N^D abbude)
+			(NP-DAT-PRN (NR^D Benedicte))))
+  (ID cobede.o2,Bede_5:22.480.25.4822)) 
+
+/*
+FOOTER
+  source file, hits/tokens/total
+  cobede.o2		11/11/117
+*/
+/*
+HEADER:
+source file:  cobenrul.o3
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cobenrul.o3		0/0/21
+*/
+/*
+HEADER:
+source file:  coblick.o23
+*/
+/~*
+& swa hwylc man swa nele his ceapes & his w+astma +tone teo+tan d+al for Godes
+naman d+alan, +tonne ne bi+d +t+am seald Drihtnes mildheortnes, ne his synna
+forgifnes.
+(coblick.o23,HomS_14_[BlHom_4]:49.189.615)
+*~/
+/*
+1 IP-MAT:  1 IP-MAT, 23 BEPI, 28 VBN, 30 NP-NOM, 25 NP-DAT-RSP
+*/
+( (IP-MAT (CONJ &)
+	  (CP-FRL-LFD (WNP-NOM-1 (ADV swa) (WADJ^N hwylc) (N^N man))
+		      (C swa)
+		      (IP-SUB RMV:*T*-1_nele_his...))
+	  (, ,)
+	  (ADVP-TMP (ADV^T +tonne))
+	  (NEG ne)
+	  (BEPI bi+d)
+	  (NP-DAT-RSP (D^D +t+am))
+	  (VBN seald)
+	  (NP-NOM (NP-NOM (NP-GEN (NR^G Drihtnes))
+			  (N^N mildheortnes))
+		  (, ,)
+		  (CONJP (NEG+CONJ ne)
+			 (NP-NOM (NP-GEN (PRO$ his) (N^G synna))
+				 (N^N forgifnes))))
+	  (. .))
+  (ID coblick.o23,HomS_14_[BlHom_4]:49.189.615)) 
+
+/~*
+Bro+dor mine, nu we gehyrdon secgan +ta weor+dunga +tyses ondweardan d+ages, &
+eac +ta gife +te +dam halgan apostolum seald w+as on +dysne ondweardan d+ag.
+(coblick.o23,HomS_47_[BlHom_12]:137.106.1661)
+*~/
+/*
+1 IP-SUB:  1 IP-SUB, 13 BEDI, 11 VBN, 2 NP-NOM, 4 NP-DAT
+*/
+( (IP-SUB (NP-NOM *T*-1)
+	  (NP-DAT (D^D +dam) (ADJ^D halgan) (N^D apostolum))
+	  (VBN seald)
+	  (BEDI w+as)
+	  (PP (P on)
+	      (NP-ACC (D^A +dysne) (ADJ^A ondweardan) (N^A d+ag))))
+  (ID coblick.o23,HomS_47_[BlHom_12]:137.106.1661)) 
+
+/~*
+Nis hit +t+at an +t+at him anum +t+am apostolum w+are geofu seald, ac eac
++tonne eallum manna cynne forgifnes w+as seald ealra synna, & eac se freodom
++t+as unar+afnedlican +teowdomes, +t+at is +d+as deofollican onwaldes eallum
+welwyrcendum.
+(coblick.o23,HomS_47_[BlHom_12]:137.108.1662)
+*~/
+/*
+1 IP-SUB:  1 IP-SUB, 12 BEDS, 17 VBN, 14 NP-NOM, 2 NP-DAT
+*/
+( (IP-SUB (NP-DAT (PRO^D him)
+		  (NUM^D anum)
+		  (NP-DAT-PRN (D^D +t+am) (N^D apostolum)))
+	  (BEDS w+are)
+	  (NP-NOM (N^N geofu))
+	  (VBN seald))
+  (ID coblick.o23,HomS_47_[BlHom_12]:137.108.1662)) 
+
+/~*
+Nis hit +t+at an +t+at him anum +t+am apostolum w+are geofu seald, ac eac
++tonne eallum manna cynne forgifnes w+as seald ealra synna, & eac se freodom
++t+as unar+afnedlican +teowdomes, +t+at is +d+as deofollican onwaldes eallum
+welwyrcendum.
+(coblick.o23,HomS_47_[BlHom_12]:137.108.1662)
+*~/
+/*
+1 IP-SUB-CON-1:  1 IP-SUB-CON-1, 21 BEDI, 23 VBN, 16 NP-NOM, 8 NP-DAT
+*/
+( (IP-SUB-CON-1 (ADVP (ADV eac))
+		(ADVP-TMP (ADV^T +tonne))
+		(NP-DAT (Q^D eallum)
+			(NP-GEN (N^G manna))
+			(N^D cynne))
+		(NP-NOM (N^N forgifnes)
+			(NP-GEN *ICH*-2))
+		(BEDI w+as)
+		(VBN seald)
+		(NP-GEN-2 (Q^G ealra) (N^G synna)))
+  (ID coblick.o23,HomS_47_[BlHom_12]:137.108.1662)) 
+
+/~*
+& +teos lar me w+as seald n+as na for mannum ac +turh God sylfne.
+(coblick.o23,LS_32_[PeterandPaul[BlHom_15]]:185.263.2389)
+*~/
+/*
+1 IP-MAT-SPE:  1 IP-MAT-SPE, 12 BEDI, 14 VBN, 4 NP-NOM, 9 NP-DAT
+*/
+( (IP-MAT-SPE (CONJ &)
+	      (NP-NOM (D^N +teos) (N^N lar))
+	      (NP-DAT (PRO^D me))
+	      (BEDI w+as)
+	      (VBN seald)
+	      (PP (PP (NEG+ADV n+as)
+		      (NEG+ADV na)
+		      (P for)
+		      (NP-DAT (N^D mannum)))
+		  (CONJP (CONJ ac)
+			 (PP (P +turh)
+			     (NP-ACC (NR^A God) (ADJ^A sylfne)))))
+	      (. .))
+  (ID coblick.o23,LS_32_[PeterandPaul[BlHom_15]]:185.263.2389)) 
+
+/*
+FOOTER
+  source file, hits/tokens/total
+  coblick.o23		5/5/67
+*/
+/*
+HEADER:
+source file:  coboeth.o2
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  coboeth.o2		0/0/34
+*/
+/*
+HEADER:
+source file:  cocanedgD
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cocanedgD		0/0/1
+*/
+/*
+HEADER:
+source file:  cocanedgX
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cocanedgX		0/0/1
+*/
+/*
+HEADER:
+source file:  cocathom1.o3
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cocathom1.o3		0/0/79
+*/
+/*
+HEADER:
+source file:  cocathom2.o3
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cocathom2.o3		0/0/95
+*/
+/*
+HEADER:
+source file:  cochad.o24
+*/
+/~*
++ta bed he +at +Teodore +tam ercebiscope +tet him & his +deode were biscop
+sald.
+(cochad.o24,LS_3_[Chad]:36.25)
+*~/
+/*
+1 IP-SUB:  1 IP-SUB, 14 BEDS, 19 VBN, 16 NP-NOM, 2 NP-DAT
+*/
+( (IP-SUB (NP-DAT (NP-DAT (PRO^D him))
+		  (CONJP (CONJ &)
+			 (NP-DAT (PRO$ his) (N^D +deode))))
+	  (BEDS were)
+	  (NP-NOM (N^N biscop))
+	  (VBN sald))
+  (ID cochad.o24,LS_3_[Chad]:36.25)) 
+
+/~*
+ac he bed +at Oswio +tam cininge +tet him were sald Ceadda se biscop Se +ta
+git hefde stille lif in his mynstre +tet wes gehaten in Lestinga ege.
+(cochad.o24,LS_3_[Chad]:39.27)
+*~/
+/*
+1 IP-SUB:  1 IP-SUB, 5 BEDS, 7 VBN, 9 NP-NOM, 2 NP-DAT
+*/
+( (IP-SUB (NP-DAT (PRO^D him))
+	  (BEDS were)
+	  (VBN sald)
+	  (NP-NOM (NR^N Ceadda)
+		  (NP-NOM-PRN (D^N se) (N^N biscop))
+		  (CP-REL (WNP-NOM-1 (D^N Se))
+			  (C 0)
+			  (IP-SUB RMV:*T*-1_+ta_git...))))
+  (ID cochad.o24,LS_3_[Chad]:39.27)) 
+
+/*
+FOOTER
+  source file, hits/tokens/total
+  cochad.o24		2/2/4
+*/
+/*
+HEADER:
+source file:  cochdrul
+*/
+/~*
+ac sy gelic eallum seald +at & drinc efne +atsamne.
+(cochdrul,ChrodR_1:5.10.151)
+*~/
+/*
+1 IP-MAT:  1 IP-MAT, 4 BEPS, 12 VBN, 14 NP-NOM, 9 NP-DAT
+*/
+( (IP-MAT (CONJ ac)
+	  (BEPS sy)
+	  (ADJP-NOM (ADJ^N gelic))
+	  (NP-DAT (Q^D eallum))
+	  (VBN seald)
+	  (NP-NOM (N^N +at) (CONJ &) (N^N drinc))
+	  (ADVP (ADV efne))
+	  (ADVP (ADV +atsamne))
+	  (. .))
+  (ID cochdrul,ChrodR_1:5.10.151)) 
+
+/*
+FOOTER
+  source file, hits/tokens/total
+  cochdrul		1/1/23
+*/
+/*
+HEADER:
+source file:  cochronA-1.o23
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cochronA-1.o23	0/0/10
+*/
+/*
+HEADER:
+source file:  cochronA-2a.o23
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cochronA-2a.o23	0/0/3
+*/
+/*
+HEADER:
+source file:  cochronA-2c.o23
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cochronA-2c.o23	0/0/1
+*/
+/*
+HEADER:
+source file:  cochronA-3.o23
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cochronA-3.o23	0/0/1
+*/
+/*
+HEADER:
+source file:  cochronA-7.o23
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cochronA-7.o23	0/0/1
+*/
+/*
+HEADER:
+source file:  cochronA-10.o23
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cochronA-10.o23	0/0/1
+*/
+/*
+HEADER:
+source file:  cochronC
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cochronC		0/0/33
+*/
+/*
+HEADER:
+source file:  cochronD
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cochronD		0/0/46
+*/
+/*
+HEADER:
+source file:  cochronE.o34
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cochronE.o34		0/0/5
+*/
+/*
+HEADER:
+source file:  cochronE-INTERPOLATION.o34
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cochronE-INTERPOLATION.o34	0/0/2
+*/
+/*
+HEADER:
+source file:  cochronE.o34
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cochronE.o34		0/0/1
+*/
+/*
+HEADER:
+source file:  cochronE-INTERPOLATION.o34
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cochronE-INTERPOLATION.o34	0/0/4
+*/
+/*
+HEADER:
+source file:  cochronE.o34
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cochronE.o34		0/0/1
+*/
+/*
+HEADER:
+source file:  cochronE-INTERPOLATION.o34
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cochronE-INTERPOLATION.o34	0/0/3
+*/
+/*
+HEADER:
+source file:  cochronE.o34
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cochronE.o34		0/0/6
+*/
+/*
+HEADER:
+source file:  cochronE-INTERPOLATION.o34
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cochronE-INTERPOLATION.o34	0/0/8
+*/
+/*
+HEADER:
+source file:  cochronE.o34
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cochronE.o34		0/0/20
+*/
+/*
+HEADER:
+source file:  cochronE-INTERPOLATION.o34
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cochronE-INTERPOLATION.o34	0/0/1
+*/
+/*
+HEADER:
+source file:  cochronE.o34
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cochronE.o34		0/0/4
+*/
+/*
+HEADER:
+source file:  cochronE-INTERPOLATION.o34
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cochronE-INTERPOLATION.o34	0/0/1
+*/
+/*
+HEADER:
+source file:  cochronE.o34
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cochronE.o34		0/0/28
+*/
+/*
+HEADER:
+source file:  cocura.o2
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cocura.o2		0/0/90
+*/
+/*
+HEADER:
+source file:  cocuraC
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cocuraC		0/0/1
+*/
+/*
+HEADER:
+source file:  codicts.o34
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  codicts.o34		0/0/2
+*/
+/*
+HEADER:
+source file:  codocu1.o1
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  codocu1.o1		0/0/14
+*/
+/*
+HEADER:
+source file:  codocu2.o12
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  codocu2.o12		0/0/2
+*/
+/*
+HEADER:
+source file:  codocu2.o2
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  codocu2.o2		0/0/16
+*/
+/*
+HEADER:
+source file:  codocu3.o23
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  codocu3.o23		0/0/5
+*/
+/*
+HEADER:
+source file:  codocu3.o3
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  codocu3.o3		0/0/30
+*/
+/*
+HEADER:
+source file:  coeluc1
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  coeluc1		0/0/1
+*/
+/*
+HEADER:
+source file:  coeuphr
+*/
+/~*
+and him wear+d agifen his eage,
+(coeuphr,LS_7_[Euphr]:321.340)
+*~/
+/*
+1 IP-MAT:  1 IP-MAT, 7 BEDI, 9 VBN, 11 NP-NOM, 4 NP-DAT
+*/
+( (IP-MAT (CONJ and)
+	  (NP-DAT (PRO^D him))
+	  (BEDI wear+d)
+	  (VBN agifen)
+	  (NP-NOM (PRO$ his) (N^N eage))
+	  (. ,))
+  (ID coeuphr,LS_7_[Euphr]:321.340)) 
+
+/*
+FOOTER
+  source file, hits/tokens/total
+  coeuphr		1/1/6
+*/
+/*
+HEADER:
+source file:  coeust
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  coeust		0/0/5
+*/
+/*
+HEADER:
+source file:  cogenesiC
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cogenesiC		0/0/20
+*/
+/*
+HEADER:
+source file:  cogregdC.o24
+*/
+/~*
+& sona swa +t+as cnihtes f+ader him fram cyrde, on +ta ylcan tid he oncneow,
++t+at him w+as eft lif seald, +te he +ar gehyrde of +t+as h+alendes sylfes
+mu+de, +t+at him lif gehaten w+as.
+(cogregdC.o24,GD_1_[C]:4.30.7.317)
+*~/
+/*
+1 IP-SUB:  1 IP-SUB, 5 BEDI, 13 VBN, 10 NP-NOM, 2 NP-DAT
+*/
+( (IP-SUB (NP-DAT (PRO^D him))
+	  (BEDI w+as)
+	  (ADVP-TMP (ADV^T eft))
+	  (NP-NOM (N^N lif))
+	  (VBN seald))
+  (ID cogregdC.o24,GD_1_[C]:4.30.7.317)) 
+
+/~*
++Ta gelamp +t+ar swy+te wundorlicu wise, seo w+as swi+de to wafienne. +T+at is,
++tonne sona swa +t+at gehalgode w+ater geran +t+as Gotan scancan, +ta wear+d
+se bryce eall eft gesta+delod & +tam sceancan w+as seo +afre h+alo agifen, swa
++t+at he on +ta ylcan tid aras of his r+aste & eode to his horse & ferde eft
+on +tone ylcan weg, +te he +ar ongan, efne swilce he n+afre ne ge+trowode
++anige deringe his lichaman.
+(cogregdC.o24,GD_1_[C]:10.82.22.945)
+*~/
+/*
+1 IP-MAT:  1 IP-MAT, 7 BEDI, 16 VBN, 9 NP-NOM, 2 NP-DAT
+*/
+( (IP-MAT (NP-DAT (D^D +tam) (N^D sceancan))
+	  (BEDI w+as)
+	  (NP-NOM (D^N seo) (ADV^T +afre) (N^N h+alo))
+	  (VBN agifen)
+	  (, ,)
+	  (CP-ADV (P swa)
+		  (C +t+at)
+		  (IP-SUB RMV:he_on_+ta...)))
+  (ID cogregdC.o24,GD_1_[C]:10.82.22.945)) 
+
+/~*
++Ta +ta 1 he +arest com to Spolitanebyrig of Syria d+alum his agnum earde, he
+ab+ad him ingang fram +tam cyricweardum, +t+at him w+are agifen leaf him to
+gebiddenne swa lange swa 1 1 he wolde, & +t+at hi hine na ne nyddon, +t+at he
+on deogle tid of +d+are cyrican ut aeode.
+(cogregdC.o24,GDPref_and_3_[C]:14.200.1.2592)
+*~/
+/*
+1 IP-SUB:  1 IP-SUB, 5 BEDS, 7 VBN, 9 NP-NOM, 2 NP-DAT
+*/
+( (IP-SUB (NP-DAT (PRO^D him))
+	  (BEDS w+are)
+	  (VBN agifen)
+	  (NP-NOM (N^N leaf))
+	  (IP-INF-1 RMV:him_to_gebiddenne...))
+  (ID cogregdC.o24,GDPref_and_3_[C]:14.200.1.2592)) 
+
+/~*
+& +tonne sona heom w+as seald se regn, se +te fullice mihte +ta eor+dan wel
+gehyrtan.
+(cogregdC.o24,GDPref_and_3_[C]:15.210.15.2790)
+*~/
+/*
+1 IP-MAT:  1 IP-MAT, 13 BEDI, 15 VBN, 17 NP-NOM, 10 NP-DAT
+*/
+( (IP-MAT (CONJ &)
+	  (ADVP-TMP (ADV^T +tonne))
+	  (ADVP-TMP (ADV^T sona))
+	  (NP-DAT (PRO^D heom))
+	  (BEDI w+as)
+	  (VBN seald)
+	  (NP-NOM (D^N se)
+		  (N^N regn)
+		  (, ,)
+		  (CP-REL (WNP-NOM-1 (D^N se))
+			  (C +te)
+			  (IP-SUB RMV:*T*-1_fullice_mihte...)))
+	  (. .))
+  (ID cogregdC.o24,GDPref_and_3_[C]:15.210.15.2790)) 
+
+/~*
+& for+ton +te hire by+t +arest seald, +t+at heo m+ag hire ondr+adan +ta
+hellican witu, heo becym+d +after +ton to +ton, +t+at heo by+d onbryrded mid
+so+dre lufe to +tam heofonlican rice, swa swa hit her mid sumum wordum
+gerynelice gereht is.
+(cogregdC.o24,GDPref_and_3_[C]:34.246.13.3485)
+*~/
+/*
+1 IP-SUB:  1 IP-SUB, 7 BEPI, 12 VBN, 2 NP-NOM-x, 4 NP-DAT
+*/
+( (IP-SUB (NP-NOM-x *exp*)
+	  (NP-DAT (PRO^D hire))
+	  (BEPI by+t)
+	  (ADVP-TMP (ADVS^T +arest))
+	  (VBN seald)
+	  (, ,)
+	  (CP-THT-x (C +t+at)
+		    (IP-SUB RMV:heo_m+ag_hire...)))
+  (ID cogregdC.o24,GDPref_and_3_[C]:34.246.13.3485)) 
+
+/~*
+& wende aa & sorgode, hwanne he w+are seald +tam uncl+anan gaste to +treagenne
+& to sw+ancenne beforan eallum +tam folce.
+(cogregdC.o24,GDPref_and_4_[C]:33.308.26.4605)
+*~/
+/*
+1 IP-SUB:  1 IP-SUB, 7 BEDS, 9 VBN, 4 NP-NOM-2, 11 NP-DAT
+*/
+( (IP-SUB (ADVP-TMP *T*-1)
+	  (NP-NOM-2 (PRO^N he))
+	  (BEDS w+are)
+	  (VBN seald)
+	  (NP-DAT (D^D +tam) (ADJ^D uncl+anan) (N^D gaste))
+	  (IP-INF-NCO RMV:*-2_to_+treagenne...))
+  (ID cogregdC.o24,GDPref_and_4_[C]:33.308.26.4605)) 
+
+/~*
+& nu for+ton ic eom seald +tysum dracan to forswelganne, se hafa+t gebunden
+mid his t+agle mine cneowu & mine fet,
+(cogregdC.o24,GDPref_and_4_[C]:40.327.7.4929)
+*~/
+/*
+1 IP-MAT-SPE:  1 IP-MAT-SPE, 13 BEPI, 15 VBN, 10 NP-NOM-1, 17 NP-DAT
+*/
+( (IP-MAT-SPE (CONJ &)
+	      (ADVP-TMP (ADV^T nu))
+	      (ADVP (ADV for+ton))
+	      (NP-NOM-1 (PRO^N ic))
+	      (BEPI eom)
+	      (VBN seald)
+	      (NP-DAT (D^D +tysum)
+		      (N^D dracan)
+		      (CP-REL-SPE *ICH*-2))
+	      (IP-INF-NCO-SPE RMV:*-1_to_forswelganne...)
+	      (, ,)
+	      (CP-REL-SPE-2 (WNP-NOM-3 (D^N se))
+			    (C 0)
+			    (IP-SUB-SPE RMV:*T*-3_hafa+t_gebunden...))
+	      (. ,))
+  (ID cogregdC.o24,GDPref_and_4_[C]:40.327.7.4929)) 
+
+/~*
+& +ta unrihtwisan men beo+d sealde $hellfyrum;
+(cogregdC.o24,GDPref_and_4_[C]:46.335.8.5044)
+*~/
+/*
+1 IP-MAT:  1 IP-MAT, 11 BEPI, 13 VBN^N, 4 NP-NOM, 15 NP-DAT
+*/
+( (IP-MAT (CONJ &)
+	  (NP-NOM (D^N +ta) (ADJ^N unrihtwisan) (N^N men))
+	  (BEPI beo+d)
+	  (VBN^N sealde)
+	  (NP-DAT (N^D $hellfyrum))
+	  (. ;))
+  (ID cogregdC.o24,GDPref_and_4_[C]:46.335.8.5044)) 
+
+/*
+FOOTER
+  source file, hits/tokens/total
+  cogregdC.o24		8/8/119
+*/
+/*
+HEADER:
+source file:  cogregdH.o23
+*/
+/~*
+& w+as swa geworden, +t+at, +ta +tam Godes +teowe w+as his an hors agifen, +ta
+underfengon hi ealle +at him hyra horsa to brucenne & to notienne.
+(cogregdH.o23,GD_1_[H]:2.15.32.120)
+*~/
+/*
+1 IP-SUB:  1 IP-SUB, 10 BEDI, 19 VBN, 12 NP-NOM, 2 NP-DAT
+*/
+( (IP-SUB (NP-DAT (D^D +tam)
+		  (NP-GEN (NR^G Godes))
+		  (N^D +teowe))
+	  (BEDI w+as)
+	  (NP-NOM (PRO$ his) (NUM^N an) (N^N hors))
+	  (VBN agifen))
+  (ID cogregdH.o23,GD_1_[H]:2.15.32.120)) 
+
+/~*
+& +tam +teo w+as agifen seo +arre h+alo, swa +t+at he on +t+are ylcan tide
+aras of +tam bedde & wear+d uppon his horse & ferde eft on +tone ylcan weg,
++te he +ar ongann, efne swilce he n+afre nane derunge his lichaman ne +tolode.
+(cogregdH.o23,GD_1_[H]:10.82.24.840)
+*~/
+/*
+1 IP-MAT:  1 IP-MAT, 9 BEDI, 11 VBN, 13 NP-NOM, 4 NP-DAT
+*/
+( (IP-MAT (CONJ &)
+	  (NP-DAT (D^D +tam) (N^D +teo))
+	  (BEDI w+as)
+	  (VBN agifen)
+	  (NP-NOM (D^N seo) (ADJR^N +arre) (N^N h+alo))
+	  (, ,)
+	  (CP-ADV (P swa)
+		  (C +t+at)
+		  (IP-SUB RMV:he_on_+t+are...))
+	  (. .))
+  (ID cogregdH.o23,GD_1_[H]:10.82.24.840)) 
+
+/*
+FOOTER
+  source file, hits/tokens/total
+  cogregdH.o23		2/2/44
+*/
+/*
+HEADER:
+source file:  coherbar
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  coherbar		0/0/8
+*/
+/*
+HEADER:
+source file:  coinspolX
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  coinspolX		0/0/2
+*/
+/*
+HEADER:
+source file:  cojames
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cojames		0/0/2
+*/
+/*
+HEADER:
+source file:  colaece.o2
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  colaece.o2		0/0/46
+*/
+/*
+HEADER:
+source file:  colaw1cn.o3
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  colaw1cn.o3		0/0/1
+*/
+/*
+HEADER:
+source file:  colaw2cn.o3
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  colaw2cn.o3		0/0/9
+*/
+/*
+HEADER:
+source file:  colaw5atr.o3
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  colaw5atr.o3		0/0/1
+*/
+/*
+HEADER:
+source file:  colaw6atr.o3
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  colaw6atr.o3		0/0/1
+*/
+/*
+HEADER:
+source file:  colawaf.o2
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  colawaf.o2		0/0/16
+*/
+/*
+HEADER:
+source file:  colawafint.o2
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  colawafint.o2		0/0/18
+*/
+/*
+HEADER:
+source file:  colawine
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  colawine		0/0/22
+*/
+/*
+HEADER:
+source file:  colawnorthu.o3
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  colawnorthu.o3	0/0/2
+*/
+/*
+HEADER:
+source file:  colsigef.o3
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  colsigef.o3		0/0/1
+*/
+/*
+HEADER:
+source file:  colsigewB
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  colsigewB		0/0/6
+*/
+/*
+HEADER:
+source file:  colsigewZ.o34
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  colsigewZ.o34		0/0/7
+*/
+/*
+HEADER:
+source file:  colwsigeT
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  colwsigeT		0/0/1
+*/
+/*
+HEADER:
+source file:  colwsigeXa.o34
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  colwsigeXa.o34	0/0/1
+*/
+/*
+HEADER:
+source file:  colwstan1.o3
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  colwstan1.o3		0/0/3
+*/
+/*
+HEADER:
+source file:  colwstan2.o3
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  colwstan2.o3		0/0/2
+*/
+/*
+HEADER:
+source file:  comargaC.o34
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  comargaC.o34		0/0/7
+*/
+/*
+HEADER:
+source file:  comargaT
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  comargaT		0/0/6
+*/
+/*
+HEADER:
+source file:  comart1
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  comart1		0/0/4
+*/
+/*
+HEADER:
+source file:  comart2
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  comart2		0/0/9
+*/
+/*
+HEADER:
+source file:  comart3.o23
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  comart3.o23		0/0/43
+*/
+/*
+HEADER:
+source file:  comarvel.o23
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  comarvel.o23		0/0/2
+*/
+/*
+HEADER:
+source file:  comary
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  comary		0/0/4
+*/
+/*
+HEADER:
+source file:  coneot
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  coneot		0/0/1
+*/
+/*
+HEADER:
+source file:  conicodA
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  conicodA		0/0/25
+*/
+/*
+HEADER:
+source file:  conicodC
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  conicodC		0/0/11
+*/
+/*
+HEADER:
+source file:  conicodD
+*/
+/~*
+and him +t+ar ne bi+d n+anig cl+annis seald, ne r+aft.
+(conicodD,Nic_[D]:84.75)
+*~/
+/*
+1 IP-MAT:  1 IP-MAT, 12 BEPI, 21 VBN, 14 NP-NOM, 4 NP-DAT
+*/
+( (IP-MAT (CONJ and)
+	  (NP-DAT (PRO^D him))
+	  (ADVP-LOC (ADV^L +t+ar))
+	  (NEG ne)
+	  (BEPI bi+d)
+	  (NP-NOM (NEG+Q^N n+anig)
+		  (N^N cl+annis)
+		  (CONJP *ICH*-1))
+	  (VBN seald)
+	  (, ,)
+	  (CONJP-1 (NEG+CONJ ne)
+		   (NX-NOM (N^N r+aft)))
+	  (. .))
+  (ID conicodD,Nic_[D]:84.75)) 
+
+/*
+FOOTER
+  source file, hits/tokens/total
+  conicodD		1/1/6
+*/
+/*
+HEADER:
+source file:  conicodE
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  conicodE		0/0/6
+*/
+/*
+HEADER:
+source file:  coorosiu.o2
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  coorosiu.o2		0/0/47
+*/
+/*
+HEADER:
+source file:  cootest.o3
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cootest.o3		0/0/154
+*/
+/*
+HEADER:
+source file:  coprefcura.o2
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  coprefcura.o2		0/0/1
+*/
+/*
+HEADER:
+source file:  corood
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  corood		0/0/3
+*/
+/*
+HEADER:
+source file:  cosevensl
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cosevensl		0/0/6
+*/
+/*
+HEADER:
+source file:  cosolilo
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cosolilo		0/0/11
+*/
+/*
+HEADER:
+source file:  cosolsat1.o4
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cosolsat1.o4		0/0/1
+*/
+/*
+HEADER:
+source file:  cotempo.o3
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cotempo.o3		0/0/1
+*/
+/*
+HEADER:
+source file:  coverhom
+*/
+/~*
+La hw+at, men him ne ondr+ada+t +t+at mycle dioful Antecrist mid his helle
+witum & mid his yrm+tum & his +tam saran suslum +te him bio+t to edleane hira
+firena golden.
+(coverhom,HomU_8_[ScraggVerc_2]:34.345)
+*~/
+/*
+1 IP-SUB:  1 IP-SUB, 7 BEPI, 20 VBN, 2 NP-NOM, 4 NP-DAT
+*/
+( (IP-SUB (NP-NOM *T*-1)
+	  (NP-DAT (PRO^D him))
+	  (BEPI bio+t)
+	  (PP (P to)
+	      (NP-DAT (N^D edleane)
+		      (NP-GEN (PRO$ hira) (N^G firena))))
+	  (VBN golden))
+  (ID coverhom,HomU_8_[ScraggVerc_2]:34.345)) 
+
+/~*
+ne he ne bi+d Iudeum anum seald,
+(coverhom,HomS_1_[ScraggVerc_5]:162.941)
+*~/
+/*
+1 IP-MAT-SPE:  1 IP-MAT-SPE, 9 BEPI, 16 VBN, 4 NP-NOM, 11 NP-DAT
+*/
+( (IP-MAT-SPE (NEG+CONJ ne)
+	      (NP-NOM (PRO^N he))
+	      (NEG ne)
+	      (BEPI bi+d)
+	      (NP-DAT (NR^D Iudeum) (NUM^D anum))
+	      (VBN seald)
+	      (. ,))
+  (ID coverhom,HomS_1_[ScraggVerc_5]:162.941)) 
+
+/~*
+& abeodan het +d+atte anra gehwylc +tara +te on carcern w+are +t+at se w+are
+ut forl+aten, & +ta +te on bendum gesette w+aron +t+at +da w+aron ealle
+onlysede, & +ta +de for hiora manum sceoldon wesan acwealde +t+at +tam eallum
+w+are hira feorh gifen, & +t+at eallum scyldgum w+aron hira scylda forgifene.
+(coverhom,HomU_10_[ScraggVerc_6]:48.1006)
+*~/
+/*
+1 IP-SUB:  1 IP-SUB, 9 BEDS, 16 VBN, 2 NP-NOM-LFD, 4 NP-DAT-RSP
+1 IP-SUB:  1 IP-SUB, 9 BEDS, 16 VBN, 11 NP-NOM, 4 NP-DAT-RSP
+*/
+( (IP-SUB (NP-NOM-LFD *ICH*-7)
+	  (NP-DAT-RSP (D^D +tam) (Q^D eallum))
+	  (BEDS w+are)
+	  (NP-NOM (PRO$ hira) (N^N feorh))
+	  (VBN gifen))
+  (ID coverhom,HomU_10_[ScraggVerc_6]:48.1006)) 
+
+/~*
+& him bi+d seald ealle cynelice geofa,
+(coverhom,HomU_6_[ScraggVerc_15]:39.1887)
+*~/
+/*
+1 IP-MAT-SPE:  1 IP-MAT-SPE, 7 BEPI, 9 VBN, 11 NP-NOM, 4 NP-DAT
+*/
+( (IP-MAT-SPE (CONJ &)
+	      (NP-DAT (PRO^D him))
+	      (BEPI bi+d)
+	      (VBN seald)
+	      (NP-NOM (Q^N ealle) (ADJ^N cynelice) (N^N geofa))
+	      (. ,))
+  (ID coverhom,HomU_6_[ScraggVerc_15]:39.1887)) 
+
+/~*
+Eallum yflum ic eom seald, cw+a+d seo synfulle sawl,
+(coverhom,HomU_7_[ScraggVerc_22]:4.2808)
+*~/
+/*
+1 IP-MAT-SPE:  1 IP-MAT-SPE, 10 BEPI, 12 VBN, 7 NP-NOM, 2 NP-DAT
+*/
+( (IP-MAT-SPE (NP-DAT (Q^D Eallum) (N^D yflum))
+	      (NP-NOM (PRO^N ic))
+	      (BEPI eom)
+	      (VBN seald)
+	      (, ,)
+	      (IP-MAT-PRN RMV:cw+a+d_seo_synfulle...)
+	      (. ,))
+  (ID coverhom,HomU_7_[ScraggVerc_22]:4.2808)) 
+
+/~*
+Wa +dam +te nele nu his synna hreowe don, for +tan he bi+d seald +tonne +dam
+re+destan feondum +ta hine grimlice dea+de cwylma+d.
+(coverhom,HomU_7_[ScraggVerc_22]:214.3019)
+*~/
+/*
+1 IP-SUB-SPE:  1 IP-SUB-SPE, 5 BEPI, 7 VBN, 2 NP-NOM, 12 NP-DAT
+*/
+( (IP-SUB-SPE (NP-NOM (PRO^N he))
+	      (BEPI bi+d)
+	      (VBN seald)
+	      (ADVP-TMP (ADV^T +tonne))
+	      (NP-DAT (D^D +dam)
+		      (ADJS^D re+destan)
+		      (N^D feondum)
+		      (CP-REL-SPE (WNP-NOM-2 (D^N +ta))
+				  (C 0)
+				  (IP-SUB-SPE RMV:*T*-2_hine_grimlice...))))
+  (ID coverhom,HomU_7_[ScraggVerc_22]:214.3019)) 
+
+/*
+FOOTER
+  source file, hits/tokens/total
+  coverhom		6/6/71
+*/
+/*
+HEADER:
+source file:  coverhomE
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  coverhomE		0/0/3
+*/
+/*
+HEADER:
+source file:  coverhomL
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  coverhomL		0/0/1
+*/
+/*
+HEADER:
+source file:  covinceB
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  covinceB		0/0/2
+*/
+/*
+HEADER:
+source file:  covinsal
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  covinsal		0/0/9
+*/
+/*
+HEADER:
+source file:  cowsgosp.o3
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cowsgosp.o3		0/0/211
+*/
+/*
+HEADER:
+source file:  cowulf.o34
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cowulf.o34		0/0/9
+*/
+/*
+SUMMARY:  
+source files, hits/tokens/total
+  coaelhom.o3		0/0/55
+  coaelive.o3		0/0/67
+  coalcuin		0/0/7
+  coalex.o23		0/0/4
+  coapollo.o3		0/0/19
+  cobede.o2		11/11/117
+  cobenrul.o3		0/0/21
+  coblick.o23		5/5/67
+  coboeth.o2		0/0/34
+  cocanedgD		0/0/1
+  cocanedgX		0/0/1
+  cocathom1.o3		0/0/79
+  cocathom2.o3		0/0/95
+  cochad.o24		2/2/4
+  cochdrul		1/1/23
+  cochronA-1.o23	0/0/10
+  cochronA-2a.o23	0/0/3
+  cochronA-2c.o23	0/0/1
+  cochronA-3.o23	0/0/1
+  cochronA-7.o23	0/0/1
+  cochronA-10.o23	0/0/1
+  cochronC		0/0/33
+  cochronD		0/0/46
+  cochronE.o34		0/0/5
+  cochronE-INTERPOLATION.o34	0/0/2
+  cochronE.o34		0/0/1
+  cochronE-INTERPOLATION.o34	0/0/4
+  cochronE.o34		0/0/1
+  cochronE-INTERPOLATION.o34	0/0/3
+  cochronE.o34		0/0/6
+  cochronE-INTERPOLATION.o34	0/0/8
+  cochronE.o34		0/0/20
+  cochronE-INTERPOLATION.o34	0/0/1
+  cochronE.o34		0/0/4
+  cochronE-INTERPOLATION.o34	0/0/1
+  cochronE.o34		0/0/28
+  cocura.o2		0/0/90
+  cocuraC		0/0/1
+  codicts.o34		0/0/2
+  codocu1.o1		0/0/14
+  codocu2.o12		0/0/2
+  codocu2.o2		0/0/16
+  codocu3.o23		0/0/5
+  codocu3.o3		0/0/30
+  coeluc1		0/0/1
+  coeuphr		1/1/6
+  coeust		0/0/5
+  cogenesiC		0/0/20
+  cogregdC.o24		8/8/119
+  cogregdH.o23		2/2/44
+  coherbar		0/0/8
+  coinspolX		0/0/2
+  cojames		0/0/2
+  colaece.o2		0/0/46
+  colaw1cn.o3		0/0/1
+  colaw2cn.o3		0/0/9
+  colaw5atr.o3		0/0/1
+  colaw6atr.o3		0/0/1
+  colawaf.o2		0/0/16
+  colawafint.o2		0/0/18
+  colawine		0/0/22
+  colawnorthu.o3	0/0/2
+  colsigef.o3		0/0/1
+  colsigewB		0/0/6
+  colsigewZ.o34		0/0/7
+  colwsigeT		0/0/1
+  colwsigeXa.o34	0/0/1
+  colwstan1.o3		0/0/3
+  colwstan2.o3		0/0/2
+  comargaC.o34		0/0/7
+  comargaT		0/0/6
+  comart1		0/0/4
+  comart2		0/0/9
+  comart3.o23		0/0/43
+  comarvel.o23		0/0/2
+  comary		0/0/4
+  coneot		0/0/1
+  conicodA		0/0/25
+  conicodC		0/0/11
+  conicodD		1/1/6
+  conicodE		0/0/6
+  coorosiu.o2		0/0/47
+  cootest.o3		0/0/154
+  coprefcura.o2		0/0/1
+  corood		0/0/3
+  cosevensl		0/0/6
+  cosolilo		0/0/11
+  cosolsat1.o4		0/0/1
+  cotempo.o3		0/0/1
+  coverhom		6/6/71
+  coverhomE		0/0/3
+  coverhomL		0/0/1
+  covinceB		0/0/2
+  covinsal		0/0/9
+  cowsgosp.o3		0/0/211
+  cowulf.o34		0/0/9
+whole search, hits/tokens/total
+			37/37/1932
+*/

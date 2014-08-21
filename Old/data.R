@@ -1,10 +1,10 @@
-dit <- read.csv('~/Dropbox/Research/Dissertation/Current/Eng/dit.csv')
+dit <- read.csv('C://home/Dropbox//Research/Dissertation//Current//Eng/LitOnlineResults//newadj.csv')
 
 dit$NGenre<-dit$Genre
-levels(dit$NGenre)<-c("FORMAL","FORMAL","INFORMAL","FORMAL","FORMAL","FORMAL","FORMAL","FORMAL","FORMAL","FORMAL","FORMAL","INFORMAL","FORMAL","FORMAL","FORMAL","FORMAL","TRANSLATION","POETRY","FORMAL","INFORMAL","FORMAL","FORMAL","TRANSLATION","WEIRD","WEIRD","WEIRD")
-oe<-subset(dit,Verb=='OLDENG')
+levels(dit$NGenre)<-c("FORMAL","FORMAL","INFORMAL","FORMAL","FORMAL","INFORMAL","FORMAL","FORMAL","FORMAL","FORMAL","FORMAL","FORMAL","INFORMAL","FORMAL","FORMAL","FORMAL","FORMAL","TRANSLATION","POETRY","FORMAL","INFORMAL","FORMAL","FORMAL","TRANSLATION","WEIRD","WEIRD","WEIRD")
+oe<-subset(dit,YoC<=1100)
 levels(oe$NGenre)<-c('FORMAL','INFORMAL','TRANSLATION','POETRY','FORMAL')
-dit<-as.data.frame(rbind(subset(dit,Verb!='OLDENG'),oe))
+dit<-as.data.frame(rbind(subset(dit,YoC>1100),oe))
 rm(oe)
 
 dit$NDat<-dit$Dat
@@ -276,18 +276,18 @@ pdit<-as.data.frame(rbind(rec,the))
 rm(rec)
 rm(the)
 
-levels(pdit$IO)<-c('IONoun','IOPronoun','IOEmpty','IOWH','IONoun','IOPronoun','IOEmpty','IONull')
+levels(pdit$IO)<-c('IONoun','IOPronoun','IOEmpty','IOWH','IONoun','IOPronoun','IOEmpty','IONull','NoIO')
 levels(pdit$DO)<-c('CP','DONoun','DOPronoun','DOEmpty','DONull','DONoun','DOPronoun','DOEmpty','DOWH')
 pdit$IO<-factor(pdit$IO)
 pdit$DO<-factor(pdit$DO)
 
-dit$IO <- dit$NDat
-dit$DO <- dit$NAcc
-
-npdit<-subset(pdit,(IOType=='DP'|IOType=='TO'|IOType=='UNTO'|IOType=='TIL'|IOType=='NoIO')&(IO=='IONoun'|IO=='IOPronoun')&(DO=='DONoun'|DO=='DOPronoun'))
+npdit<-subset(pdit,(IOType=='DP'|IOType=='TO'|IOType=='UNTO'|IOType=='TIL'|IOType=='NoIO')&(IO=='IONoun'|IO=='IOPronoun')&(DO=='DONoun'|DO=='DOPronoun'|DO=='DOEmpty'))
 npdit$NVerb<-factor(npdit$NVerb)
 
-rdit<-subset(dit,Pas=='ACT'&(IOType=='DP'|IOType=='TO'|IOType=='UNTO'|IOType=='TIL')&(IO=='IONoun'|IO=='IOPronoun')&(DO=='DONoun'|DO=='DOPronoun'))
+dit$IO<-dit$NDat
+dit$DO<-dit$NAcc
+
+rdit<-subset(dit,Pas=='ACT'&(IOType=='DP'|IOType=='TO'|IOType=='UNTO'|IOType=='TIL')&(IO=='IONoun'|IO=='IOPronoun')&(DO=='DONoun'|DO=='DOPronoun'|DO=='DOEmpty'))
 rdit$IOType<-factor(rdit$IOType)
 rdit$IO<-factor(rdit$NDat)
 rdit$DO<-factor(rdit$NAcc)
@@ -301,4 +301,4 @@ nrdit$NVerb <-factor(nrdit$NVerb)
 
 dit<-as.data.frame(rbind(npdit,nrdit))
 
-save(dit,file='newdit.RData')
+save(dit,file='newadj.RData')

@@ -29,7 +29,7 @@ Scripts related to the study of ditransitive sentences (especially in English)
 
 13) Go to the corpus-tools directory and run fill-in-externals.py with dit.cod.ooo as an argument
 
-14) Open dit.csv and copy the headings for internal info into csv (at the end of the first line): ,Clause,IOType,ObjOrder,Dat,Acc,IONum,AccNum,IOCP,AccCP,Pas,AccOrder,DatOrder,Verb,Nom
+14) Open dit.csv and copy the headings for internal info into csv (at the end of the first line): ,Clause,IOType,ObjOrder,Dat,Acc,IONum,AccNum,IOCP,AccCP,Pas,AccOrder,DatOrder,Verb,Nom,IOAdj
 
 15) Run the data.R script in the same directory as the dit.csv just generated.  This will create a dit.RData, with only the data from actual ditransitive tokens.
 
