@@ -3,35 +3,62 @@ ditransitive-scripts
 
 Scripts related to the study of ditransitive sentences (especially in English)
 
-1) Run Full.q on all of the English corpora (PPCME2,PCEEC,PPCEME, and PPCMBE), except for YCOE
+1) Run the add-cp.q from my corpus-tools repository on the English corpora
+
+2) Run the remove-dup-cp.q from my corpus-tools repository on the output of the previous query.
+
+3) Run Full.q on the output of the previous query.
 
 2) Run the RemoveDup.py from my corpus-tools repository on Full.out
 
-3) Run the external.c coding query from my corpus-tools repository on Full.psd
+3) Run the external.c coding query from my corpus-tools repository on Full.psd, and make sure that the external.cod file is in the same folder as this file.
 
-4) Run Verbs.c on external.cod
+4a) Run the runCS.sh script, and then go to step 21.
 
-5) Run OldEngAct.q on all of the psd files from YCOE
+4b) Run Verbs.c on external.cod
 
-6) Run OldEngPas.q on all the psd files from YCOE
+5) Run clausetype.c
 
-7) Run the RemoveDup.py from my corpus-tools repository on OldEngAct.out and OldEngPas.out
+5) Run PP.c
 
-8) Run the external.c coding query from my corpus-tools repository on OldEngAct.psd and OldEngPas.psd, naming the file oldeng_external.cod (to distinguish it from the other external.cod)
+6) Run NomType.c
 
-9) Run OEVerbs.c on oldeng_external.cod
+7) Run DatType.c
 
-10) Run internal.c on both Verbs.cod and OEVerbs.cod simultaneously
+8) Run AccType.c
 
-11) Copy internal.cod to dit.cod
+9) Run NomVerbOrd.c
 
-12) Run the only-coding.q query from my corpus-tools repository on dit.cod
+10) Run DatVerbOrd.c
 
-13) Go to the corpus-tools directory and run fill-in-externals.py with dit.cod.ooo as an argument
+11) Run AccVerbOrd.c
 
-14) Open dit.csv and copy the headings for internal info into csv (at the end of the first line): ,Clause,IOType,ObjOrder,Dat,Acc,IONum,AccNum,IOCP,AccCP,Pas,AccOrder,DatOrder,Verb,Nom,IOAdj
+12) Run NomDatOrd.c
 
-15) Run the data.R script in the same directory as the dit.csv just generated.  This will create a dit.RData, with only the data from actual ditransitive tokens.
+13) Run NomAccOrd.c
+
+14) Run AccDatOrd.c
+
+15) Run pas.c
+
+16) Run hascp.c
+
+17) Run nomsize.c
+
+18) Run datsize.c
+
+19) Run accsize.c
+
+20) Run adj.c
+
+21) Run the only-coding.q query from my corpus-tools repository on dit.cod
+
+22) Go to the corpus-tools directory and run fill-in-externals.py with dit.cod.ooo as an argument
+
+23) Open dit.csv and copy the headings for internal info into csv (at the end of the first line): 
+	Verb	Clause	PP	Nom	Dat	Acc	NomVerb	DatVerb	AccVerb	NomDat	NomAcc	DatAcc	Pas	NomCP	DatCP	AccCP	NomSize	DatSize	AccSize	Adj
+
+24) Run the data.R script in the same directory as the dit.csv just generated.  This will create a dit.RData, with only the data from actual ditransitive tokens.
 
 16)* Run the prior.R script in the same directory as dit.RData, which will create the prior.RData, which contains the priors for the STAN model.
 
