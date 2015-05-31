@@ -1,7 +1,7 @@
 ditransitive-scripts
 ====================
 
-Scripts related to the study of ditransitive sentences (especially in English)
+Scripts related to the study of ditransitive sentences (especially in English) - With both Modern English and Old English versions
 
 1) Run the add-cp.q from my corpus-tools repository on the English corpora
 

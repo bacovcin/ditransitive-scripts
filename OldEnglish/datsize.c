@@ -1,0 +1,53 @@
+node: CP*
+
+define: Ditrans.def
+
+coding_query:
+
+19: {
+	NA: (IP* iDoms dat) AND (dat iDoms \**)
+	\1: (IP*  iDoms dat) AND (dat DomsWords 1)
+	\2: (IP*  iDoms dat) AND (dat DomsWords 2)
+	\3: (IP*  iDoms dat) AND (dat DomsWords 3)
+	\4: (IP*  iDoms dat) AND (dat DomsWords 4)
+	\5: (IP*  iDoms dat) AND (dat DomsWords 5)
+	\6: (IP*  iDoms dat) AND (dat DomsWords 6)
+	\7: (IP*  iDoms dat) AND (dat DomsWords 7)
+	\8: (IP*  iDoms dat) AND (dat DomsWords 8)
+	\9: (IP*  iDoms dat) AND (dat DomsWords 9)
+	\10: (IP*  iDoms dat) AND (dat DomsWords 10)
+	\11: (IP*  iDoms dat) AND (dat DomsWords 11)
+	\12: (IP*  iDoms dat) AND (dat DomsWords 12)
+	\13: (IP*  iDoms dat) AND (dat DomsWords 13)
+	\14: (IP*  iDoms dat) AND (dat DomsWords 14)
+	\15: (IP*  iDoms dat) AND (dat DomsWords 15)
+	\16: (IP*  iDoms dat) AND (dat DomsWords 16)
+	\17: (IP*  iDoms dat) AND (dat DomsWords 17)
+	\18: (IP*  iDoms dat) AND (dat DomsWords 18)
+	\19: (IP*  iDoms dat) AND (dat DomsWords 19)
+	\20: (IP*  iDoms dat) AND (dat DomsWords 20)
+	MORE: (IP*  iDoms dat) AND (dat DomsWords> 20)
+	NA: (IP*  iDoms PP) AND (PP iDomsMod PP|CONJ* P) AND (P iDoms ditp) AND (P HasSister NP) AND (NP iDoms \**)
+	\1: (IP*  iDoms PP) AND (PP iDomsMod PP|CONJP* P) AND (P iDoms ditp) AND (P HasSister NP*) AND (NP* DomsWords 1)
+	\2: (IP*  iDoms PP) AND (PP iDomsMod PP|CONJP* P) AND (P iDoms ditp) AND (P HasSister NP*) AND (NP* DomsWords 2)
+	\3: (IP*  iDoms PP) AND (PP iDomsMod PP|CONJP* P) AND (P iDoms ditp) AND (P HasSister NP*) AND (NP* DomsWords 3)
+	\4: (IP*  iDoms PP) AND (PP iDomsMod PP|CONJP* P) AND (P iDoms ditp) AND (P HasSister NP*) AND (NP* DomsWords 4)
+	\5: (IP*  iDoms PP) AND (PP iDomsMod PP|CONJP* P) AND (P iDoms ditp) AND (P HasSister NP*) AND (NP* DomsWords 5)
+	\6: (IP*  iDoms PP) AND (PP iDomsMod PP|CONJP* P) AND (P iDoms ditp) AND (P HasSister NP*) AND (NP* DomsWords 6)
+	\7: (IP*  iDoms PP) AND (PP iDomsMod PP|CONJP* P) AND (P iDoms ditp) AND (P HasSister NP*) AND (NP* DomsWords 7)
+	\8: (IP*  iDoms PP) AND (PP iDomsMod PP|CONJP* P) AND (P iDoms ditp) AND (P HasSister NP*) AND (NP* DomsWords 8)
+	\9: (IP*  iDoms PP) AND (PP iDomsMod PP|CONJP* P) AND (P iDoms ditp) AND (P HasSister NP*) AND (NP* DomsWords 9)
+	\10: (IP*  iDoms PP) AND (PP iDomsMod PP|CONJP* P) AND (P iDoms ditp) AND (P HasSister NP*) AND (NP* DomsWords 10)
+	\11: (IP*  iDoms PP) AND (PP iDomsMod PP|CONJP* P) AND (P iDoms ditp) AND (P HasSister NP*) AND (NP* DomsWords 11)
+	\12: (IP*  iDoms PP) AND (PP iDomsMod PP|CONJP* P) AND (P iDoms ditp) AND (P HasSister NP*) AND (NP* DomsWords 12)
+	\13: (IP*  iDoms PP) AND (PP iDomsMod PP|CONJP* P) AND (P iDoms ditp) AND (P HasSister NP*) AND (NP* DomsWords 13)
+	\14: (IP*  iDoms PP) AND (PP iDomsMod PP|CONJP* P) AND (P iDoms ditp) AND (P HasSister NP*) AND (NP* DomsWords 14)
+	\15: (IP*  iDoms PP) AND (PP iDomsMod PP|CONJP* P) AND (P iDoms ditp) AND (P HasSister NP*) AND (NP* DomsWords 15)
+	\16: (IP*  iDoms PP) AND (PP iDomsMod PP|CONJP* P) AND (P iDoms ditp) AND (P HasSister NP*) AND (NP* DomsWords 16)
+	\17: (IP*  iDoms PP) AND (PP iDomsMod PP|CONJP* P) AND (P iDoms ditp) AND (P HasSister NP*) AND (NP* DomsWords 17)
+	\18: (IP*  iDoms PP) AND (PP iDomsMod PP|CONJP* P) AND (P iDoms ditp) AND (P HasSister NP*) AND (NP* DomsWords 18)
+	\19: (IP*  iDoms PP) AND (PP iDomsMod PP|CONJP* P) AND (P iDoms ditp) AND (P HasSister NP*) AND (NP* DomsWords 19)
+	\20: (IP*  iDoms PP) AND (PP iDomsMod PP|CONJP* P) AND (P iDoms ditp) AND (P HasSister NP*) AND (NP* DomsWords 20)
+	MORE: (IP*  iDoms PP) AND (PP iDomsMod PP|CONJP* P) AND (P iDoms ditp) AND (P HasSister NP*) AND (NP* DomsWords> 20)
+	NA: ELSE
+}
