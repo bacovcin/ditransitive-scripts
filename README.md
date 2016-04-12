@@ -1,5 +1,9 @@
 ditransitive-scripts
 ====================
+Two different things:
+1) Collection of R files for analysing failed change in Middle English for DIGS 2013 Proceedings paper.
+2) Collection of CorpusSearch queries for collecting data relevant to ditransitives in the history of English (folders: HeavyNP, ModernEnglish, NewModEng, OldEnglish, PosOrder, RomanceVerb); see description below for how to use the ModernEnglish/NewModEng/OldEnglish scripts (same general format for other folders)
+
 
 Scripts related to the study of ditransitive sentences (especially in English) - With both Modern English and Old English versions
 
@@ -11,7 +15,7 @@ Scripts related to the study of ditransitive sentences (especially in English) -
 
 2) Run the RemoveDup.py from my corpus-tools repository on Full.out
 
-3) Run the external.c coding query from my corpus-tools repository on Full.psd, and make sure that the external.cod file is in the same folder as this file.
+3) Run the external.c coding query from my corpus-tools repository on Full.psd, and make sure that the external.cod file is in the same folder as the relevant query files (e.g. NewModEng).
 
 4a) Run the runCS.sh script, and then go to step 21.
 
@@ -51,9 +55,9 @@ Scripts related to the study of ditransitive sentences (especially in English) -
 
 20) Run adj.c
 
-21) Run the only-coding.q query from my corpus-tools repository on dit.cod
+21) Run the only-coding.q query from my corpus-tools repository on adj.cod
 
-22) Go to the corpus-tools directory and run fill-in-externals.py with dit.cod.ooo as an argument
+22) Go to the corpus-tools directory and run fill-in-externals.py with adj.cod.ooo as an argument
 
 23) Open dit.csv and copy the headings for internal info into csv (at the end of the first line): 
 	Verb	Clause	PP	Nom	Dat	Acc	NomVerb	DatVerb	AccVerb	NomDat	NomAcc	DatAcc	Pas	NomCP	DatCP	AccCP	NomSize	DatSize	AccSize	Adj
